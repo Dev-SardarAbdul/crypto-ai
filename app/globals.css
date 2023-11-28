@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Dirty Brush";
-  src: url("../public/fonts/Dirty\ Brush.ttf");
+  font-family: "Neue Montreal";
+  src: url("../public/fonts/NeueMontreal-Medium.otf");
 }
 
 h1 {
-  font-family: "Dirty Brush" !important;
+  font-family: "Neue Montreal" !important;
   line-height: normal !important;
 }
