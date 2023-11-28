@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Dirty Brush";
+  src: url("../public/fonts/Dirty\ Brush.ttf");
+}
+
+h1 {
+  font-family: "Dirty Brush" !important;
+  line-height: normal !important;
+}
