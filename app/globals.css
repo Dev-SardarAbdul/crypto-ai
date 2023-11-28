@@ -11,3 +11,9 @@ h1 {
   font-family: "Neue Montreal" !important;
   line-height: normal !important;
 }
+
+.hero-span {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #1e1f25;
+  color: transparent;
+}
