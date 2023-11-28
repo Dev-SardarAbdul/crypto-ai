@@ -1,5 +1,6 @@
 import AifiToken from "@/components/aifiToken";
 import Artidevelopment from "@/components/artidevelopment";
+import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import aifitokenimg from "@/public/images/aifitokenimg.png";
 import developmentimg from "@/public/images/developmentimg1.png";
@@ -18,14 +19,19 @@ export default function Home() {
         </div>
         <AifiToken />
       </main>
+      <div className="relative">
+        <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
+          <div className="absolute left-0 ">
+            <Image src={developmentimg} />
+          </div>
+          <div className="absolute right-0 top-[-4rem]">
+            <Image src={developmentimg2} />
+          </div>
+          <Artidevelopment />
+        </main>
+      </div>
       <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
-        <div className="absolute left-0">
-          <Image src={developmentimg} />
-        </div>
-        <div className="absolute right-0">
-          <Image src={developmentimg2} />
-        </div>
-        <Artidevelopment />
+        <Footer />
       </main>
     </>
   );
