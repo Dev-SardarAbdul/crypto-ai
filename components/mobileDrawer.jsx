@@ -1,7 +1,8 @@
 "use client";
 import React, { useRef, useEffect } from "react";
-import { FaXTwitter } from "react-icons/fa6";
 import { GiCrossedBones } from "react-icons/gi";
+import { FaSquareFull } from "react-icons/fa6";
+import { FiArrowUpRight } from "react-icons/fi";
 
 function MobileDrawer({ toggleDrawer, showDrawer }) {
   const containerRef = useRef(null);
@@ -23,30 +24,40 @@ function MobileDrawer({ toggleDrawer, showDrawer }) {
       document.removeEventListener("click", handleClickOutside);
     };
   }, [showDrawer, toggleDrawer]);
+
   return (
     <div
-      className={`h-screen lg:hidden flex flex-col w-[300px] fixed overflow-x-hidden overflow-y-auto top-0 -right-5 z-[999] bg-black border-l border-white pr-12 pt-6 pb-12 pl-6 `}
+      className={`h-screen lg:hidden flex flex-col w-[300px] fixed overflow-x-hidden overflow-y-auto top-0 -right-5 z-[999] bg-white border-l border-black pr-12 pt-6 pb-12 pl-6 `}
       ref={containerRef}
     >
       <GiCrossedBones
-        className="text-[#fff] text-[24px] cursor-pointer"
+        className="text-black text-[24px] cursor-pointer"
         onClick={toggleDrawer}
       />
 
       <div className="flex flex-col justify-start items-end gap-4 flex-1 mt-6 ">
-        <p className="text-white font-[700] uppercase cursor-pointer border-b pb-3">
-          Tokenomics
+        <p className="text-[#1E1F25] opacity-60 flex justify-between items-center gap-8 font-[500] uppercase cursor-pointer border-b-2 border-dashed border-[#1E1F25] pb-2">
+          Home{" "}
+          <FaSquareFull className="opacity-40 text-[#1E1F25] text-[12px]" />
         </p>
-        <p className="text-white font-[700] uppercase cursor-pointer border-b pb-3">
-          Roadmap
+        <p className="text-[#1E1F25] opacity-60 flex justify-between items-center gap-8 font-[500] uppercase cursor-pointer border-b-2 border-dashed border-[#1E1F25] pb-2">
+          How It Works{" "}
+          <FaSquareFull className="opacity-40 text-[#1E1F25] text-[12px]" />
         </p>
-        <p className="text-white font-[700] uppercase cursor-pointer border-b pb-3">
-          Contact Us
+        <p className="text-[#1E1F25] opacity-60 flex justify-between items-center gap-8 font-[500] uppercase cursor-pointer border-b-2 border-dashed border-[#1E1F25] pb-2">
+          Token{" "}
+          <FaSquareFull className="opacity-40 text-[#1E1F25] text-[12px]" />
+        </p>
+        <p className="text-[#1E1F25] opacity-60 flex justify-between items-center gap-8 font-[500] uppercase cursor-pointer border-b-2 border-dashed border-[#1E1F25] pb-2">
+          Docs{" "}
+          <FaSquareFull className="opacity-40 text-[#1E1F25] text-[12px]" />
         </p>
       </div>
 
       <div className="flex flex-row flex-wrap justify-center items-center gap-6 ">
-        <FaXTwitter fontSize={32} color="#fff" className="cursor-pointer" />
+        <button className="text-[#1E1F25] text-[500] flex justify-center items-center gap-2">
+          Launch App <FiArrowUpRight className="text-[20px]" />
+        </button>{" "}
       </div>
     </div>
   );
