@@ -35,7 +35,7 @@ function MobileDrawer({ toggleDrawer, showDrawer }) {
   return (
     <div
       className={`lg:hidden flex flex-col w-[300px] fixed overflow-x-hidden overflow-y-auto top-0 -right-5 z-[999] bg-white border-l border-black pr-12 pt-6 pb-12 pl-6`}
-      style={{ height: "100svh" }}
+      style={{ height: "100dvh" }}
       ref={containerRef}
     >
       <GiCrossedBones
