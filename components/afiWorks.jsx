@@ -33,7 +33,7 @@ function AfiWorks() {
         </div>
         <div className="flex-1">
           {data?.map((item, index) => (
-            <div className={index > 0 ? "mt-8" : ""}>
+            <div key={item.id} className={index > 0 ? "mt-8" : ""}>
               <h1 className="flex justify-start gap-4 text-[#1E1F25] text-[20px] font-[500] uppercase">
                 <Image src={textImg} /> {item?.header}
               </h1>

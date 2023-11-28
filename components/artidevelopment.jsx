@@ -23,7 +23,10 @@ const Artidevelopment = () => {
       </h1>
       <div className="mt-[6rem]">
         {data.map((item) => (
-          <div className="py-[1.5rem] border border-[#88837E] border-solid border-1 flex flex-col justify-center pl-[1rem] mt-[2rem] rounded-[0.5625rem] pr-[2rem]">
+          <div
+            key={item.id}
+            className="py-[1.5rem] border border-[#88837E] border-solid border-1 flex flex-col justify-center pl-[1rem] mt-[2rem] rounded-[0.5625rem] pr-[2rem]"
+          >
             <h1 className="text-[#1E1F25] text-[1.375rem] uppercase">
               {item.title}
             </h1>

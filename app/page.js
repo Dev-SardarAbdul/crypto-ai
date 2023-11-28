@@ -5,6 +5,7 @@ import aifitokenimg from "@/public/images/aifitokenimg.png";
 import heroShape from "@/public/images/heroShape.png";
 import developmentimg from "@/public/images/developmentimg1.png";
 import developmentimg2 from "@/public/images/developmentimg2.png";
+import divider from "@/public/images/divider.png";
 import settingsImg from "@/public/images/settingsImg.png";
 import Image from "next/image";
 import Footer from "@/components/footer";
@@ -23,6 +24,8 @@ export default function Home() {
         </main>
       </div>
 
+      <Image src={divider} className="w-full" />
+
       <div className="relative">
         <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
           <div className="absolute right-0 top-[2rem]">
@@ -32,6 +35,8 @@ export default function Home() {
         </main>
       </div>
 
+      <Image src={divider} className="w-full my-8 lg:my-20" />
+
       <div className="relative">
         <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
           <div className="absolute right-0 top-[2rem]">
@@ -40,6 +45,8 @@ export default function Home() {
           <AifiToken />
         </main>
       </div>
+
+      <Image src={divider} className="w-full my-8 lg:my-20" />
 
       <div className="relative">
         <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
@@ -52,6 +59,8 @@ export default function Home() {
           <Artidevelopment />
         </main>
       </div>
+
+      <Image src={divider} className="w-full my-8 lg:my-20" />
 
       <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
         <Footer />
