@@ -5,9 +5,11 @@ import aifitokenimg from "@/public/images/aifitokenimg.png";
 import heroShape from "@/public/images/heroShape.png";
 import developmentimg from "@/public/images/developmentimg1.png";
 import developmentimg2 from "@/public/images/developmentimg2.png";
-
+import settingsImg from "@/public/images/settingsImg.png";
 import Image from "next/image";
 import Footer from "@/components/footer";
+import AfiWorks from "@/components/afiWorks";
+
 export default function Home() {
   return (
     <>
@@ -20,6 +22,16 @@ export default function Home() {
           <Hero />
         </main>
       </div>
+
+      <div className="relative">
+        <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
+          <div className="absolute right-0 top-[2rem]">
+            <Image src={settingsImg} />
+          </div>
+          <AfiWorks />
+        </main>
+      </div>
+
       <div className="relative">
         <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
           <div className="absolute right-0 top-[2rem]">
@@ -28,6 +40,7 @@ export default function Home() {
           <AifiToken />
         </main>
       </div>
+
       <div className="relative">
         <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
           <div className="absolute left-0 ">
@@ -39,6 +52,7 @@ export default function Home() {
           <Artidevelopment />
         </main>
       </div>
+
       <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
         <Footer />
       </main>
