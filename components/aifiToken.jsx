@@ -21,11 +21,11 @@ const AifiToken = () => {
   ];
 
   return (
-    <div>
+    <div className="mt-[2rem]">
       <h1 className="text-[#1E1F25] text-[4.8125rem] uppercase">AIFI Token</h1>
       <div className="grid grid-cols-2 gap-4 mt-[1.5rem]">
         {data.map((item) => (
-          <div className="w-[38.5625rem] h-[8.125rem] border border-black border-dashed border-1 flex flex-col justify-center pl-[.7rem] mt-[.5rem]">
+          <div className="w-[38.5625rem] h-[8.125rem] border-2 border-[#1E1F25] border-dashed border-1 flex flex-col justify-center pl-[.7rem] mt-[.5rem]">
             <h1 className="text-[#1E1F25] text-[1.375rem] uppercase">
               {item.title}
             </h1>
