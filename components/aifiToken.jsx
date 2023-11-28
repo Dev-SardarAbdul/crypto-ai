@@ -21,7 +21,7 @@ const AifiToken = () => {
   ];
 
   return (
-    <div className="mt-[2rem] overflow-x-hidden">
+    <div className="mt-[2rem] overflow-x-hidden" id="token">
       <h1 className="text-[#1E1F25] text-[4.8125rem] uppercase max-lg:text-center max-md:text-[1.875rem]">
         AIFI Token
       </h1>

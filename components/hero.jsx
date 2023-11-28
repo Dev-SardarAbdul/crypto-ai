@@ -5,7 +5,10 @@ import Image from "next/image";
 
 function Hero() {
   return (
-    <div className="relative z-10 min-h-screen flex flex-col justify-between">
+    <div
+      className="relative z-10 min-h-screen flex flex-col justify-between"
+      id="hero"
+    >
       <Navbar />
       <div className="flex flex-col justify-center flex-1">
         <div className="flex justify-center lg:hidden">

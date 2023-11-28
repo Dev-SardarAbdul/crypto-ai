@@ -17,7 +17,7 @@ const Artidevelopment = () => {
   ];
 
   return (
-    <div className="mt-[4rem] pb-[4rem]">
+    <div className="mt-[4rem] pb-[4rem]" id="docs">
       <h1 className="text-[#1E1F25] text-[4.8125rem] uppercase max-lg:text-center max-md:text-[1.875rem]">
         ARTI Development
       </h1>

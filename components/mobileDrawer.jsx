@@ -25,6 +25,13 @@ function MobileDrawer({ toggleDrawer, showDrawer }) {
     };
   }, [showDrawer, toggleDrawer]);
 
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div
       className={`h-screen lg:hidden flex flex-col w-[300px] fixed overflow-x-hidden overflow-y-auto top-0 -right-5 z-[999] bg-white border-l border-black pr-12 pt-6 pb-12 pl-6 `}
@@ -36,19 +43,43 @@ function MobileDrawer({ toggleDrawer, showDrawer }) {
       />
 
       <div className="flex flex-col justify-start items-end gap-4 flex-1 mt-6 ">
-        <p className="text-[#1E1F25] opacity-60 flex justify-between items-center gap-8 font-[500] uppercase cursor-pointer border-b-2 border-dashed border-[#1E1F25] pb-2">
+        <p
+          className="text-[#1E1F25] opacity-60 flex justify-between items-center gap-8 font-[500] uppercase cursor-pointer border-b-2 border-dashed border-[#1E1F25] pb-2"
+          onClick={() => {
+            toggleDrawer();
+            scrollToSection("hero");
+          }}
+        >
           Home{" "}
           <FaSquareFull className="opacity-40 text-[#1E1F25] text-[12px]" />
         </p>
-        <p className="text-[#1E1F25] opacity-60 flex justify-between items-center gap-8 font-[500] uppercase cursor-pointer border-b-2 border-dashed border-[#1E1F25] pb-2">
+        <p
+          className="text-[#1E1F25] opacity-60 flex justify-between items-center gap-8 font-[500] uppercase cursor-pointer border-b-2 border-dashed border-[#1E1F25] pb-2"
+          onClick={() => {
+            toggleDrawer();
+            scrollToSection("how-afi-works");
+          }}
+        >
           How It Works{" "}
           <FaSquareFull className="opacity-40 text-[#1E1F25] text-[12px]" />
         </p>
-        <p className="text-[#1E1F25] opacity-60 flex justify-between items-center gap-8 font-[500] uppercase cursor-pointer border-b-2 border-dashed border-[#1E1F25] pb-2">
+        <p
+          className="text-[#1E1F25] opacity-60 flex justify-between items-center gap-8 font-[500] uppercase cursor-pointer border-b-2 border-dashed border-[#1E1F25] pb-2"
+          onClick={() => {
+            toggleDrawer();
+            scrollToSection("token");
+          }}
+        >
           Token{" "}
           <FaSquareFull className="opacity-40 text-[#1E1F25] text-[12px]" />
         </p>
-        <p className="text-[#1E1F25] opacity-60 flex justify-between items-center gap-8 font-[500] uppercase cursor-pointer border-b-2 border-dashed border-[#1E1F25] pb-2">
+        <p
+          className="text-[#1E1F25] opacity-60 flex justify-between items-center gap-8 font-[500] uppercase cursor-pointer border-b-2 border-dashed border-[#1E1F25] pb-2"
+          onClick={() => {
+            toggleDrawer();
+            scrollToSection("docs");
+          }}
+        >
           Docs{" "}
           <FaSquareFull className="opacity-40 text-[#1E1F25] text-[12px]" />
         </p>

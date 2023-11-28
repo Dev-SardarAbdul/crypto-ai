@@ -28,7 +28,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="text-[#1E1F25] text-[0.9375rem] font-normal italic text-center pb-[1rem]">
-        © 2023 - All Rights Reserved
+        © {new Date().getFullYear()} - All Rights Reserved
       </p>
     </>
   );
