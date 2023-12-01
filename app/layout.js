@@ -1,14 +1,14 @@
-import { Inter } from "next/font/google";
+import { Kalam } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const kalam = Kalam({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["300", "400", "700"],
 });
 
 export const metadata = {
-  title: "Crypto AI",
-  description: "Crypto AI App",
+  title: "Chaos Zone",
+  description: "Chaos Zone App",
   icons: {
     icon: [{ url: "/favicon/favicon.png" }],
   },
@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={kalam.className}>{children}</body>
     </html>
   );
 }

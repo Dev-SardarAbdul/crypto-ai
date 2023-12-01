@@ -1,70 +1,51 @@
-import AifiToken from "@/components/aifiToken";
-import Artidevelopment from "@/components/artidevelopment";
+"use client";
 import Hero from "@/components/hero";
-import aifitokenimg from "@/public/images/aifitokenimg.png";
-import heroShape from "@/public/images/heroShape.png";
-import developmentimg from "@/public/images/developmentimg1.png";
-import developmentimg2 from "@/public/images/developmentimg2.png";
+import LoadingScreen from "@/components/loadingScreen";
+import Navbar from "@/components/navbar";
+import { useEffect, useState } from "react";
 import divider from "@/public/images/divider.png";
-import settingsImg from "@/public/images/settingsImg.png";
+import divider2 from "@/public/images/divider2.png";
+
+import blackDivider from "@/public/images/blackDivider.png";
 import Image from "next/image";
+import Scroll from "@/components/scroll";
+import Tokenomics from "@/components/tokenomics";
+import bottomDivider from "@/public/images/bottomDivider.png";
 import Footer from "@/components/footer";
-import AfiWorks from "@/components/afiWorks";
 
 export default function Home() {
+  const [loaded, setLoaded] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoaded(false);
+    }, 30000);
+  }, []);
+
   return (
-    <>
-      <div className="relative">
+    <div className={loaded ? "h-screen overflow-hidden" : "overflow-x-hidden"}>
+      {loaded && <LoadingScreen />}
+      <>
+        <Navbar />
         <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
-          <div className="absolute hidden lg:block right-0 top-[8rem]">
-            <Image src={heroShape} />
-          </div>
-
-          <Hero />
+          <Hero loaded={loaded} />
         </main>
-      </div>
+        <Image src={divider} alt="divider" className="w-full pb-[2rem]" />
+        <Scroll />
 
-      <Image src={divider} className="w-full" />
+        {/* <Image src={blackDivider} className="w-full" alt="divider" /> */}
+        <Image src={divider2} className="w-full" alt="divider" />
+        <div className="bg-[#EFC14E]">
+          <main className="max-w-[1536px] mx-auto max-[1536px]:px-4 tokennomics-gradient">
+            <Tokenomics />
+          </main>
+        </div>
+        <Image src={bottomDivider} className="w-full" alt="divider" />
 
-      <div className="relative">
         <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
-          <div className="absolute right-0 top-[2rem]">
-            <Image src={settingsImg} />
-          </div>
-          <AfiWorks />
+          <Footer />
         </main>
-      </div>
-
-      <Image src={divider} className="w-full my-8 lg:my-20" />
-
-      <div className="relative">
-        <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
-          <div className="absolute right-0 top-[2rem]">
-            <Image src={aifitokenimg} />
-          </div>
-          <AifiToken />
-        </main>
-      </div>
-
-      <Image src={divider} className="w-full my-8 lg:my-20" />
-
-      <div className="relative">
-        <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
-          <div className="absolute left-0 ">
-            <Image src={developmentimg} />
-          </div>
-          <div className="absolute right-0 top-[-4rem]">
-            <Image src={developmentimg2} />
-          </div>
-          <Artidevelopment />
-        </main>
-      </div>
-
-      <Image src={divider} className="w-full my-8 lg:my-20" />
-
-      <main className="max-w-[1536px] mx-auto max-[1536px]:px-4">
-        <Footer />
-      </main>
-    </>
+      </>
+    </div>
   );
 }

@@ -3,17 +3,54 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Neue Montreal";
-  src: url("../public/fonts/NeueMontreal-Medium.otf");
+  font-family: "Cedarville Cursive";
+  src: url("../public/fonts/Cedarville-Cursive.ttf");
+}
+
+body {
+  background: #fff500;
 }
 
 h1 {
-  font-family: "Neue Montreal" !important;
-  line-height: normal !important;
+  font-family: "Cedarville Cursive" !important;
+  font-weight: bold !important;
+}
+h3 {
+  font-family: "Cedarville Cursive" !important;
 }
 
 .hero-span {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #1e1f25;
   color: transparent;
+}
+
+.dropshadow {
+  /* box-shadow: 12px 15px 0px 0px #740092; */
+  box-shadow: 43px 8px 0px 13px #740092;
+}
+
+.searchinputdropshadow {
+  box-shadow: 5px 6px 0px 0px #8e8900;
+}
+
+.disable-scroll {
+  overflow: hidden !important;
+}
+
+.gradient {
+  background: linear-gradient(
+    180deg,
+    #fff500 0.43%,
+    #fa0019 14.5%,
+    #31ff28 32.48%,
+    #2000fb 54.48%,
+    #d21eff 62.12%,
+    #fa9600 83.33%,
+    #fff500 100%
+  );
+}
+
+.tokennomics-gradient {
+  background: radial-gradient(50% 50% at 50% 50%, #fff000 57.31%, #efc14e 100%);
 }
