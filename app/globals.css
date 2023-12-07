@@ -2,55 +2,283 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Cedarville Cursive";
-  src: url("../public/fonts/Cedarville-Cursive.ttf");
-}
-
 body {
-  background: #fff500;
+  background-color: #1f2937;
 }
 
-h1 {
-  font-family: "Cedarville Cursive" !important;
-  font-weight: bold !important;
-}
-h3 {
-  font-family: "Cedarville Cursive" !important;
+.main-cover {
+  transform-style: preserve-3d;
+  transform: perspective(1200px) translateX(-20px) rotateY(-30deg);
+  border-radius: 0 5px 5px 0;
 }
 
-.hero-span {
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #1e1f25;
-  color: transparent;
-}
-
-.dropshadow {
-  /* box-shadow: 12px 15px 0px 0px #740092; */
-  box-shadow: 43px 8px 0px 13px #740092;
-}
-
-.searchinputdropshadow {
-  box-shadow: 5px 6px 0px 0px #8e8900;
-}
-
-.disable-scroll {
-  overflow: hidden !important;
-}
-
-.gradient {
+.main-cover:before {
+  position: absolute;
+  content: " ";
+  left: -139px;
+  top: 18px;
+  width: 35px;
+  height: 360px;
+  transform: translateX(440px) rotateY(90deg);
   background: linear-gradient(
-    180deg,
-    #fff500 0.43%,
-    #fa0019 14.5%,
-    #31ff28 32.48%,
-    #2000fb 54.48%,
-    #d21eff 62.12%,
-    #fa9600 83.33%,
-    #fff500 100%
+    90deg,
+    #fff,
+    #999898 5%,
+    #87b4ca 10%,
+    #fff 15%,
+    #fff 20%,
+    #87b4ca 25%,
+    #fff 30%,
+    #bcc7ed 35%,
+    #fff 40%,
+    #a1b687 45%,
+    #fff 50%,
+    #87b4ca 55%,
+    #fff 60%,
+    #5f5d5d 65%,
+    #fff 70%,
+    #2d6441 75%,
+    #fff 80%,
+    #a99a9a 85%,
+    #fff 90%,
+    #827679 95%,
+    #fff
   );
 }
 
-.tokennomics-gradient {
-  background: radial-gradient(50% 50% at 50% 50%, #fff000 57.31%, #efc14e 100%);
+.main-book-front {
+  border-radius: 2px 5px 5px 2px;
+  height: 100%;
+}
+
+.main-book-front:before {
+  content: "";
+  width: 6px;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  left: 6px;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 0 4px hsla(0, 0%, 100%, 0.4);
+}
+.main-cover:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: " ";
+  width: 310px;
+  height: 390px;
+  transform: translateZ(-58px);
+  background-color: #869ac1;
+  border-radius: 2px 5px 5px 2px;
+  box-shadow: -10px 0 50px 10px #666;
+}
+
+.snowflake {
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px #000;
+}
+
+.snowflake,
+.snowflake .inner {
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+@keyframes snowflakes-fall {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(110vh);
+  }
+}
+@keyframes snowflakes-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(80px);
+  }
+}
+.snowflake {
+  position: fixed;
+  top: -10%;
+  z-index: 9999;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+  animation-name: snowflakes-shake;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+}
+.snowflake .inner {
+  animation-duration: 10s;
+  animation-name: snowflakes-fall;
+  animation-timing-function: linear;
+}
+.snowflake:nth-of-type(0) {
+  left: 1%;
+  animation-delay: 0s;
+}
+.snowflake:nth-of-type(0) .inner {
+  animation-delay: 0s;
+}
+.snowflake:first-of-type {
+  left: 10%;
+  animation-delay: 1s;
+}
+.snowflake:first-of-type .inner,
+.snowflake:nth-of-type(8) .inner {
+  animation-delay: 1s;
+}
+.snowflake:nth-of-type(2) {
+  left: 20%;
+  animation-delay: 0.5s;
+}
+.snowflake:nth-of-type(2) .inner,
+.snowflake:nth-of-type(6) .inner {
+  animation-delay: 6s;
+}
+.snowflake:nth-of-type(3) {
+  left: 30%;
+  animation-delay: 2s;
+}
+.snowflake:nth-of-type(11) .inner,
+.snowflake:nth-of-type(3) .inner {
+  animation-delay: 4s;
+}
+.snowflake:nth-of-type(4) {
+  left: 40%;
+  animation-delay: 2s;
+}
+.snowflake:nth-of-type(10) .inner,
+.snowflake:nth-of-type(4) .inner {
+  animation-delay: 2s;
+}
+.snowflake:nth-of-type(5) {
+  left: 50%;
+  animation-delay: 3s;
+}
+.snowflake:nth-of-type(5) .inner {
+  animation-delay: 8s;
+}
+.snowflake:nth-of-type(6) {
+  left: 60%;
+  animation-delay: 2s;
+}
+.snowflake:nth-of-type(7) {
+  left: 70%;
+  animation-delay: 1s;
+}
+.snowflake:nth-of-type(7) .inner {
+  animation-delay: 2.5s;
+}
+.snowflake:nth-of-type(8) {
+  left: 80%;
+  animation-delay: 0s;
+}
+.snowflake:nth-of-type(9) {
+  left: 90%;
+  animation-delay: 1.5s;
+}
+.snowflake:nth-of-type(9) .inner {
+  animation-delay: 3s;
+}
+.snowflake:nth-of-type(10) {
+  left: 25%;
+  animation-delay: 0s;
+}
+.snowflake:nth-of-type(11) {
+  left: 65%;
+  animation-delay: 2.5s;
+}
+
+/* swiper styling */
+
+.slick-dots li button:before {
+  font-size: 10px !important;
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #ec4899 !important;
+}
+
+.slick-dots {
+  bottom: 20px !important;
+}
+
+/* switch */
+
+.ant-switch:hover:not(.ant-switch-disabled) {
+  background-color: gray;
+}
+.ant-switch:not(.ant-switch-disabled) {
+  background-color: gray;
+}
+
+.ant-switch.ant-switch-checked {
+  background-color: #31b14e;
+}
+
+.ant-switch.ant-switch-checked {
+  background-color: #31b14e;
+}
+
+/* Select */
+
+.ant-select {
+  background-color: #d1d5db;
+  border-radius: 5px;
+  border: 2px solid transparent;
+}
+
+.ant-select:active {
+  border: 2px solid #31b14e;
+}
+
+.ant-select-dropdown {
+  background-color: #d1d5db;
+  padding: 0;
+}
+
+.ant-select-dropdown
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: #31b14e;
+  border-radius: 0;
+}
+
+.swiper-gradient {
+  background: linear-gradient(
+    90deg,
+    #44ff9a -0.55%,
+    #44b0ff 22.86%,
+    #8b44ff 48.36%,
+    #ff6644 73.33%,
+    #ebff70 99.34%
+  );
+  backdrop-filter: blur(22.899999618530273px);
+}
+
+.swiper2 .slick-dots {
+  display: none !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #fff !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #f9aeae !important;
 }

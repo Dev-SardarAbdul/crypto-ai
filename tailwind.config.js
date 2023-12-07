@@ -20,8 +20,7 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       boxShadow: {
-        tokenomicsShadow: "15px 15px",
-        whiteShadow: "10px 10px 0px 0px rgba(255, 255, 255, 1)",
+        heroShadow: "0px 4px 38.3px 0px rgba(255,182,0,0.70)",
       },
     },
   },
