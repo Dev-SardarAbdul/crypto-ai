@@ -3,8 +3,6 @@ import glassesRound from "@/public/images/constructor/glasses/glassesRound.webp"
 import glassesCurved from "@/public/images/constructor/glasses/glassesCurved.webp";
 import Image from "next/image";
 import { swiperBoyData, swiperGirlData } from "./data";
-import BoyHairs from "./boyHairs";
-import GirlHairs from "./girlHairs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
@@ -58,13 +56,7 @@ function SliderComp({
                   className="w-full h-full"
                   alt="character type"
                 />
-                <div className="absolute top-[5px] left-0 z-10 ">
-                  {gender === "girl" ? (
-                    <GirlHairs index={index} hairColor={hairColor} />
-                  ) : (
-                    <BoyHairs index={index} hairColor={hairColor} />
-                  )}
-                </div>
+
                 <div className="absolute left-0 z-10 w-full h-full top-0 rounded-[20px]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
