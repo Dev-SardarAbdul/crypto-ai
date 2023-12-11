@@ -59,9 +59,12 @@ const AdditionalGoods = () => {
               className="inline-flex mx-4 sm:mx-6 lg:mx-0 gap-x-8 "
             >
               {cardData.map((item, index) => (
-                <div key={index}>
+                <>
                   <div className="fixed hidden w-1 h-0 p-0 overflow-hidden whitespace-no-wrap border-0 top-1 left-1 m-n1 clip-hidden"></div>
-                  <div className="flex rounded-lg border shrink-0 max-w-[280px] border-gray-600 px-2 py-3 bg-gray-700 flex-col text-center overflow-hidden">
+                  <div
+                    className="flex rounded-lg border shrink-0 max-w-[280px] border-gray-600 px-2 py-3 bg-gray-700 flex-col text-center overflow-hidden"
+                    key={index}
+                  >
                     <div className="">
                       <div className="bg-gray-200 overflow-hidden m-auto w-[240px] h-[267px]">
                         <div className="rounded-md relative text-[#353535] z-[9] w-[100%] h-[100%]">
@@ -127,7 +130,7 @@ const AdditionalGoods = () => {
                       </button>
                     </div>
                   </div>
-                </div>
+                </>
               ))}
             </div>
           </div>

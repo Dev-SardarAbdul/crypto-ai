@@ -282,3 +282,23 @@ body {
 .swiper-pagination-bullet-active {
   background-color: #f9aeae !important;
 }
+
+.swiper-button-prev,
+.swiper-rtl {
+  left: 50px !important;
+}
+.swiper-button-next,
+.swiper-rtl {
+  right: 50px !important;
+}
+
+@media (max-width: 992px) {
+  .swiper-button-prev,
+  .swiper-rtl {
+    left: 0px !important;
+  }
+  .swiper-button-next,
+  .swiper-rtl {
+    right: 0px !important;
+  }
+}

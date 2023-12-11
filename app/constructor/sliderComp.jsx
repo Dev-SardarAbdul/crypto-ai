@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import glassesRound from "@/public/images/constructor/glasses/glassesRound.webp";
 import glassesCurved from "@/public/images/constructor/glasses/glassesCurved.webp";
 import Image from "next/image";
@@ -21,57 +21,72 @@ function SliderComp({
 }) {
   const swiperData = gender === "girl" ? swiperGirlData : swiperBoyData;
 
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 992);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div>
       <Swiper
         modules={[Navigation, Pagination]}
-        spaceBetween={40}
+        spaceBetween={isSmallScreen ? 20 : 80}
         navigation
         pagination={{ clickable: true }}
+        centeredSlides={isSmallScreen ? false : true}
+        loop={true}
         breakpoints={{
           350: {
             slidesPerView: 1,
           },
           450: {
-            slidesPerView: 1.3,
+            slidesPerView: 1.5,
           },
           600: {
             slidesPerView: 1.8,
           },
           768: {
-            slidesPerView: 2.2,
+            slidesPerView: 2.5,
           },
           992: {
-            slidesPerView: 2,
+            slidesPerView: 1.5,
           },
         }}
       >
         {swiperData?.map((item, index) => (
           <SwiperSlide key={index}>
-            <div
-              className="relative min-h-[350px] mx-auto"
-              style={{ width: 325 }}
-            >
-              <div className="absolute inset-0 px-2  w-[85%] h-[90%] bg-[#f09dab] rounded-[20px]">
+            <div className="relative h-[350px] mx-auto">
+              <div className="absolute inset-0 px-2 w-[100%] h-[90%] bg-[#f09dab] rounded-[20px]">
                 <Image
                   src={item.character}
                   className="w-full h-full"
                   alt="character type"
                 />
-                <div className="absolute top-[5px] left-0 z-10 ">
+                <div className="absolute top-[0px] w-full h-full  left-0 z-10 flex justify-center items-center ">
                   {gender === "girl" ? (
                     <GirlHairs index={index} hairColor={hairColor} />
                   ) : (
                     <BoyHairs index={index} hairColor={hairColor} />
                   )}
                 </div>
-                <div className="absolute left-0 z-10 w-full h-full top-0 rounded-[20px]">
+                <div className="absolute left-0 z-10 w-full h-full top-0 rounded-[20px] flex justify-center items-center ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     xmlSpace="preserve"
                     strokeMiterlimit="10"
                     viewBox="740.4 1233.32 609.15 194.82"
-                    className=" w-[75px] opacity-30 absolute top-[170px] left-1/2 -translate-x-1/2"
+                    className="w-[95px] mt-11 opacity-30"
                     fill={eyesColor}
                   >
                     <g>
@@ -85,7 +100,7 @@ function SliderComp({
                     src={
                       glassesType == "rounded" ? glassesRound : glassesCurved
                     }
-                    className="absolute left-0 z-10 top-[5px]"
+                    className="absolute left-0 z-10 w-full h-full top-0 rounded-[0px] "
                     alt="character glasses"
                   />
                 )}
