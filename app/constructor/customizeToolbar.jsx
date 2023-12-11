@@ -174,7 +174,6 @@ function CustomizeToolbar({
                 type="radio"
                 value="#b0b5b7"
                 name="hairColor"
-                checked={eyesColor === "#b0b5b7"}
                 style={{ display: "none" }}
                 id="color1"
               />{" "}
@@ -192,7 +191,6 @@ function CustomizeToolbar({
                 type="radio"
                 value="#94c07f"
                 name="eyesColor"
-                checked={eyesColor === "#94c07f"}
                 style={{ display: "none" }}
                 id="color2"
               />{" "}
@@ -210,7 +208,6 @@ function CustomizeToolbar({
                 type="radio"
                 value="#ae8374"
                 name="eyesColor"
-                checked={eyesColor === "#ae8374"}
                 style={{ display: "none" }}
                 id="color3"
               />{" "}
@@ -228,7 +225,6 @@ function CustomizeToolbar({
                 type="radio"
                 value="#b2e5fb"
                 name="eyesColor"
-                checked={eyesColor === "#b2e5fb"}
                 style={{ display: "none" }}
                 id="color4"
               />{" "}
@@ -249,7 +245,6 @@ function CustomizeToolbar({
                 onClick={() => {
                   setShowColorPicker(true);
                 }}
-                checked={eyesColor === "custom"}
                 style={{ display: "none" }}
                 id="custom"
               />{" "}
@@ -286,7 +281,6 @@ function CustomizeToolbar({
                 type="radio"
                 value="#964B00"
                 name="hairColor"
-                checked={hairColor === "#964B00"}
                 style={{ display: "none" }}
                 id="hairColor1"
               />{" "}
@@ -304,7 +298,6 @@ function CustomizeToolbar({
                 type="radio"
                 value="#000"
                 name="hairColor"
-                checked={hairColor === "#000"}
                 style={{ display: "none" }}
                 id="hairColor2"
               />{" "}
@@ -322,7 +315,6 @@ function CustomizeToolbar({
                 type="radio"
                 value="gray"
                 name="hairColor"
-                checked={hairColor === "gray"}
                 style={{ display: "none" }}
                 id="hairColor3"
               />{" "}
@@ -340,7 +332,6 @@ function CustomizeToolbar({
                 type="radio"
                 value="#360D11"
                 name="hairColor"
-                checked={hairColor === "#360D11"}
                 style={{ display: "none" }}
                 id="hairColor4"
               />{" "}
@@ -361,7 +352,6 @@ function CustomizeToolbar({
                 onClick={() => {
                   setShowHairColorPicker(true);
                 }}
-                checked={hairColor === "customHairColor"}
                 style={{ display: "none" }}
                 id="customHairColor"
               />{" "}
