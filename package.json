@@ -1,34 +1,15 @@
 {
-  "name": "piuwee",
-  "version": "0.1.0",
-  "private": true,
+  "name": "manyface_html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "npx tailwindcss -i ./main.css -o ./dist/output.css --watch"
   },
-  "dependencies": {
-    "animate.css": "^4.1.1",
-    "antd": "^5.12.1",
-    "framer-motion": "^10.16.15",
-    "next": "14.0.3",
-    "react": "^18",
-    "react-animation-on-scroll": "^5.1.0",
-    "react-colorful": "^5.6.1",
-    "react-compare-slider": "^3.0.1",
-    "react-dom": "^18",
-    "react-fast-marquee": "^1.6.2",
-    "react-icons": "^4.12.0",
-    "react-loading-skeleton": "^3.3.1",
-    "react-slick": "^0.29.0",
-    "react-timer-hook": "^3.0.7",
-    "slick-carousel": "^1.8.1",
-    "swiper": "^11.0.5"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0"
+    "tailwindcss": "^3.4.0"
   }
 }

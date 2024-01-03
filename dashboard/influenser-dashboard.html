@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="influenserstyle.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- About Modal  -->
+    <div
+      id="myModal"
+      class="fixed inset-0 z-50 overflow-auto bg-opacity-75 modal"
+    >
+      <!-- Modal Content -->
+      <div
+        class="modal-content bg-white w-2/4 max-w-md mx-auto mt-16 rounded-[12px]"
+      >
+        <!-- Header -->
+        <div class="flex items-center justify-between mx-5 my-4">
+          <h2 class="text-[18px] font-bold">About</h2>
+          <img
+            onclick="closeModal()"
+            class="cursor-pointer"
+            src="../assets/images/close.png"
+            width="15"
+            alt
+          />
+        </div>
+        <hr style="border-color: black" />
+
+        <!-- Modal Body -->
+        <div class="mx-5 my-4 mb-4">
+          <p class="mb-2 text-[10px] font-semibold">
+            You can write about yourself.
+          </p>
+          <div class="">
+            <textarea
+              class="w-full p-2 border text-[12px] border-[#000] rounded-[14px]"
+              rows="6"
+              placeholder="Enter your text here..."
+            ></textarea>
+            <p class="text-end text-[12px]">0/300</p>
+          </div>
+        </div>
+        <hr style="border-color: black" />
+
+        <!-- Footer with Save Button -->
+        <div class="flex justify-end mx-5 my-4">
+          <button
+            class="bg-[#4169E1] text-white text-[12px] w-[145px] h-[37px] font-bold rounded-[20px]"
+            onclick="saveChanges()"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- About Modal  -->
+
+    <!-- Uploading Modal  -->
+    <div
+      id="videoUploadModel"
+      class="fixed inset-0 z-50 overflow-auto bg-gray-500 bg-opacity-75 modal"
+    >
+      <!-- Modal Content -->
+      <div
+        class="videomodal-content bg-white h-[800px] max-w-md mt-16 rounded-[12px] shadow-lg"
+      >
+        <!-- Header -->
+        <div class="flex items-center justify-between mx-5 my-4">
+          <h2 class="text-[18px] font-bold">Upload Video</h2>
+          <img
+            onclick="uploadcloseModal()"
+            class="cursor-pointer"
+            src="../../assets/images/close.png"
+            width="15"
+            alt
+          />
+        </div>
+        <hr style="border-color: black" />
+
+        <!-- Modal Body -->
+        <div class="mb-4">
+          <div class="flex items-center gap-3">
+            <!-- Left Column (70%) -->
+            <div class="w-[65%] px-5">
+              <p class="text-[10px] font-semibold my-2">Details</p>
+              <div class="mb-2">
+                <input
+                  type="text"
+                  placeholder="Title*"
+                  class="w-full p-2 rounded-[13px] text-[12px] placeholder:text-[12px] placeholder:pl-2 border border-black focus:outline-none focus:border-blue-500"
+                />
+              </div>
+              <div class="">
+                <textarea
+                  placeholder="Description*"
+                  rows="4"
+                  class="w-full p-2 rounded-[13px] text-[12px] placeholder:text-[12px] border border-black focus:outline-none focus:border-blue-500"
+                ></textarea>
+              </div>
+
+              <p class="text-[10px] font-semibold pl-2 my-2">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Reprehenderit, laborum iste dolorem
+              </p>
+            </div>
+
+            <!-- Right Column (30%) -->
+            <div class="w-[30%] -mt-9">
+              <div class="flex flex-col w-full text-white bg-black rounded-md">
+                <div class="h-[7.3rem] flex items-center mx-auto">
+                  <p class="text-[12px]">Uploading Video...</p>
+                </div>
+                <div class="h-[2rem]">
+                  <div class="bg-[#2C2D2F] rounded-b-md w-full">
+                    <p class="text-[10px] p-1">FileName</p>
+                    <p class="text-[10px] p-0 ps-1 pb-2 mb-3">
+                      Lorem ipsum dolor sit amet
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <hr style="border-color: black" />
+
+          <div class="flex items-center justify-between mx-5 my-4">
+            <div class="flex items-center gap-1">
+              <img src="../assets/images/shareicon.png" width="15" />
+              <p class="text-[12px] font-bold">Uploading 1%</p>
+              <img src="../assets/images/tickicon.png" width="15" />
+            </div>
+            <div>
+              <button
+                class="bg-[#4169E1] text-white font-bold py-2 px-16 rounded-[20px]"
+                onclick="saveChanges()"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Uploading Modal  -->
+
+    <!-- Audio Modal  -->
+    <div
+      id="audioUploadModel"
+      class="fixed inset-0 z-50 overflow-auto bg-gray-500 bg-opacity-75 modal"
+    >
+      <!-- Modal Content -->
+      <div
+        class="videomodal-content bg-white h-[800px] max-w-md mt-16 rounded-[12px] shadow-lg"
+      >
+        <!-- Header -->
+        <div class="flex items-center justify-between mx-5 my-4 mb-4">
+          <h2 class="text-[18px] font-bold">Upload Voice Recording</h2>
+          <img
+            onclick="uploadVoiceWorkcloseModal()"
+            class="cursor-pointer"
+            src="../assets/images/close.png"
+            width="15"
+            alt
+          />
+        </div>
+        <hr />
+        <!-- Modal Body -->
+        <div class="mb-4">
+          <div class="flex items-center gap-3">
+            <!-- Left Column (70%) -->
+            <div class="w-[65%] px-5">
+              <p class="text-[10px] font-semibold my-2">Details</p>
+              <div class="mb-2">
+                <input
+                  type="text"
+                  placeholder="Title*"
+                  class="w-full p-2 rounded-[13px] text-[12px] placeholder:text-[12px] placeholder:pl-2 border border-black focus:outline-none focus:border-blue-500"
+                />
+              </div>
+              <div class="">
+                <textarea
+                  placeholder="Description*"
+                  rows="4"
+                  class="w-full p-2 rounded-[13px] text-[12px] placeholder:text-[12px] border border-black focus:outline-none focus:border-blue-500"
+                ></textarea>
+              </div>
+
+              <p class="text-[10px] font-semibold pl-2 my-2">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Reprehenderit, laborum iste dolorem
+              </p>
+            </div>
+
+            <!-- Right Column (30%) -->
+            <div class="w-[30%] -mt-9">
+              <div class="flex flex-col w-full text-white bg-black rounded-md">
+                <div class="h-[7.3rem] flex items-center mx-auto">
+                  <img
+                    src="../assets/images/audiowave.png"
+                    width="130"
+                    alt=""
+                  />
+                </div>
+                <div class="h-[2rem]">
+                  <div class="bg-[#2C2D2F] rounded-b-md w-full">
+                    <p class="text-[10px] p-1">FileName</p>
+                    <p class="text-[10px] p-0 ps-1 pb-2 mb-3">
+                      Lorem ipsum dolor sit amet
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <hr style="border-color: black" />
+
+          <div class="flex items-center justify-between mx-5 my-4">
+            <div class="flex items-center gap-1">
+              <img src="../assets/images/shareicon.png" width="15" />
+              <p class="text-[12px] font-bold">Uploading 1%</p>
+              <img src="../assets/images/tickicon.png" width="15" />
+            </div>
+            <div>
+              <button
+                class="bg-[#4169E1] text-white font-bold py-2 px-16 rounded-[20px]"
+                onclick="saveChanges()"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Audio Voice Modal  -->
+
+    <!-- Edit Work Modal  -->
+
+    <!--  Edit Work Modal  -->
+    <div
+      id="editUploadModel"
+      class="fixed inset-0 z-50 overflow-auto bg-opacity-75 modal"
+    >
+      <!-- Modal Content -->
+      <div
+        class="workHistory-content h-[800px] max-w-md mt-16 rounded-[14px] shadow-lg"
+      >
+        <!-- Header -->
+        <div class="flex items-center justify-between mx-5 my-4 mb-4">
+          <h2 class="text-xl font-bold">Edit Work History</h2>
+          <img
+            onclick="uploadEditWorkcloseModal()"
+            class="cursor-pointer"
+            src="../assets/images/close.png"
+            width="15"
+            alt
+          />
+        </div>
+        <hr style="border-color: black" />
+
+        <!-- Modal Body -->
+        <div class="px-5 mb-4">
+          <form>
+            <!-- Company Input -->
+            <div class="mb-4">
+              <label
+                for="company"
+                class="block my-2 text-[10px] font-semibold text-black"
+                >Company Name*</label
+              >
+              <input
+                placeholder="Company Name"
+                type="text"
+                id="company"
+                name="company"
+                class="placeholder:text-[12px] text-[12px] w-full p-2 rounded-[10px] border border-[#000] focus:outline-none"
+              />
+            </div>
+
+            <!-- Description TextArea -->
+            <div class="mb-1">
+              <label
+                for="description"
+                class="block my-2 text-[10px] font-semibold text-black"
+                >Description*</label
+              >
+              <textarea
+                id="description"
+                placeholder="description"
+                name="description"
+                rows="3"
+                class="w-full p-2 text-[12px] placeholder:text-[12px] rounded-[10px] border border-[#000] focus:outline-none focus:border-blue-500"
+              ></textarea>
+              <p class="text-end text-[10px] font-semibold">0/300</p>
+            </div>
+
+            <!-- Location Input -->
+            <div class="mb-0">
+              <label
+                for="location"
+                class="block my-2 text-[10px] font-semibold text-black"
+                >Location</label
+              >
+              <input
+                type="text"
+                id="location"
+                placeholder="Ex: London, United Kingdom"
+                name="location"
+                class="placeholder:text-[12px] text-[12px] w-full p-2 rounded-[10px] border border-[#000] focus:outline-none focus:border-blue-500"
+              />
+            </div>
+
+            <div class="flex flex-row flex-1 gap-2">
+              <div class="w-[50%]">
+                <label
+                  for="month"
+                  class="block my-2 text-[10px] font-semibold text-black"
+                  >Date
+                </label>
+                <select
+                  id="month"
+                  name="month"
+                  class="w-full p-2 text-[12px] rounded-[10px] border border-[#000] focus:outline-none focus:border-blue-500"
+                >
+                  <!-- Add options for months -->
+                  <option value="1">January</option>
+                  <option value="2">February</option>
+                  <option value="2">March</option>
+                  <option value="2">April</option>
+                  <option value="2">May</option>
+                  <option value="2">June</option>
+                  <option value="2">July</option>
+                  <option value="2">Auquest</option>
+                  <option value="2">Septhember</option>
+                  <option value="2">Octobar</option>
+                  <option value="2">November</option>
+                  <option value="2">December</option>
+                  <!-- Add more months as needed -->
+                </select>
+              </div>
+
+              <div class="w-[50%]">
+                <label
+                  for="year"
+                  class="block my-2 text-[10px] font-semibold text-black"
+                >
+                  &nbsp;
+                </label>
+                <select
+                  id="year"
+                  name="year"
+                  class="w-full p-2 text-[12px] rounded-[10px] border border-[#000] focus:outline-none focus:border-blue-500"
+                >
+                  <!-- Add options for years -->
+                  <option value="2030">2030</option>
+                  <option value="2029">2029</option>
+                  <option value="2028">2028</option>
+                  <option value="2027">2027</option>
+                  <option value="2026">2026</option>
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+
+                  <!-- Add more years as needed -->
+                </select>
+              </div>
+            </div>
+
+            <!-- Date Month List -->
+
+            <!-- Date Year List -->
+          </form>
+
+          <!-- Footer -->
+        </div>
+        <hr style="border-color: black" />
+
+        <div class="flex justify-between px-5 my-2">
+          <div class="flex items-center gap-1">
+            <p class="text-[10px] font-semibold text-red-700 pl-2">
+              Delete Experience
+            </p>
+            <img src="../assets/images/deleteIcon.png" width="15" />
+          </div>
+          <div>
+            <button
+              class="bg-[#4169E1] text-white text-[12px] font-bold py-2 px-14 rounded-[20px]"
+              onclick="saveChanges()"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  Edit Work Modal    -->
+
+    <div class="mx-0 main-section lg:mx-20">
+      <div class="relative first-div">
+        <!-- notify Modal  -->
+        <div id="notificationModel" class="hidden shadow-lg notifymodal">
+          <!-- Modal Content -->
+          <div class="notifymodal-content bg-white rounded shadow-lg pb-[2rem]">
+            <!-- Modal Body -->
+            <div>
+              <div class="flex items-center gap-[8px] p-[24px]">
+                <img src="../assets/images/influ-dash/bell2.png" />
+                <h5
+                  class="text-[#4169E1] text-[18px] font-[500] tracking-[-0.38px] leading-[32px]"
+                >
+                  Notifications
+                </h5>
+              </div>
+              <div class="overflow-auto max-h-[400px]">
+                <div class="border-style px-[32px] py-[16px] mt-[-1rem]">
+                  <div class="flex items-center justify-between">
+                    <h5
+                      class="text-[#1A2228] text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                    >
+                      Collaboration request
+                    </h5>
+                    <p class="text-[#6C757D] text-[12px] font-[400]">
+                      Last updated 3 mins ago
+                    </p>
+                  </div>
+                  <p
+                    class="text-[#1A2228] text-[14px] font-[400] tracking-[-0.304px] leading-[18px] mt-[.5rem]"
+                  >
+                    Loreal paris wants to use one of your uploaded videos.
+                  </p>
+                  <div class="flex gap-[12px] mt-[.5rem]">
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center pt-[4px] pr-[12px] pb-[4px] pl-[8px] rounded-[16px] border border-solid border-[#4067DD]"
+                    >
+                      <img
+                        src="../assets/images/influ-dash/eye.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#4067DD] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Review
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] border border-solid border-[#4067DD] bg-[#4067DD]"
+                    >
+                      <img
+                        src="../assets/images/influ-dash/check.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Accept
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] bg-[#F04438]"
+                    >
+                      <img
+                        src="../assets/images/influ-dash/cross.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] max-md:text-[12px]"
+                      >
+                        Reject
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="border-style px-[32px] py-[16px] mt-[-1rem]">
+                  <div class="flex items-center justify-between">
+                    <h5
+                      class="text-[#1A2228] text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                    >
+                      Collaboration request
+                    </h5>
+                    <p class="text-[#6C757D] text-[12px] font-[400]">
+                      Last updated 3 mins ago
+                    </p>
+                  </div>
+                  <p
+                    class="text-[#1A2228] text-[14px] font-[400] tracking-[-0.304px] leading-[18px] mt-[.5rem]"
+                  >
+                    Loreal paris wants to use one of your uploaded videos.
+                  </p>
+                  <div class="flex gap-[12px] mt-[.5rem]">
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center pt-[4px] pr-[12px] pb-[4px] pl-[8px] rounded-[16px] border border-solid border-[#4067DD]"
+                    >
+                      <img
+                        src="../assets/images/influ-dash/eye.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#4067DD] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Review
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] border border-solid border-[#4067DD] bg-[#4067DD]"
+                    >
+                      <img
+                        src="../assets/images/influ-dash/check.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Accept
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] bg-[#F04438]"
+                    >
+                      <img
+                        src="../assets/images/influ-dash/cross.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] max-md:text-[12px]"
+                      >
+                        Reject
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="border-style px-[32px] py-[16px] mt-[-1rem]">
+                  <div class="flex items-center justify-between">
+                    <h5
+                      class="text-[#1A2228] text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                    >
+                      Collaboration request
+                    </h5>
+                    <p class="text-[#6C757D] text-[12px] font-[400]">
+                      Last updated 3 mins ago
+                    </p>
+                  </div>
+                  <p
+                    class="text-[#1A2228] text-[14px] font-[400] tracking-[-0.304px] leading-[18px] mt-[.5rem]"
+                  >
+                    Loreal paris wants to use one of your uploaded videos.
+                  </p>
+                  <div class="flex gap-[12px] mt-[.5rem]">
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center pt-[4px] pr-[12px] pb-[4px] pl-[8px] rounded-[16px] border border-solid border-[#4067DD]"
+                    >
+                      <img
+                        src="../assets/images/influ-dash/eye.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#4067DD] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Review
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] border border-solid border-[#4067DD] bg-[#4067DD]"
+                    >
+                      <img
+                        src="../assets/images/influ-dash/check.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Accept
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] bg-[#F04438]"
+                    >
+                      <img
+                        src="../assets/images/influ-dash/cross.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] max-md:text-[12px]"
+                      >
+                        Reject
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="border-style px-[32px] py-[16px] mt-[-1rem]">
+                  <div class="flex items-center justify-between">
+                    <h5
+                      class="text-[#1A2228] text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                    >
+                      Collaboration request
+                    </h5>
+                    <p class="text-[#6C757D] text-[12px] font-[400]">
+                      Last updated 3 mins ago
+                    </p>
+                  </div>
+                  <p
+                    class="text-[#1A2228] text-[14px] font-[400] tracking-[-0.304px] leading-[18px] mt-[.5rem]"
+                  >
+                    Loreal paris wants to use one of your uploaded videos.
+                  </p>
+                  <div class="flex gap-[12px] mt-[.5rem]">
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center pt-[4px] pr-[12px] pb-[4px] pl-[8px] rounded-[16px] border border-solid border-[#4067DD]"
+                    >
+                      <img
+                        src="../assets/images/influ-dash/eye.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#4067DD] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Review
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] border border-solid border-[#4067DD] bg-[#4067DD]"
+                    >
+                      <img
+                        src="../assets/images/influ-dash/check.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Accept
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] bg-[#F04438]"
+                    >
+                      <img
+                        src="../assets/images/influ-dash/cross.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] max-md:text-[12px]"
+                      >
+                        Reject
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- notfiy modal  -->
+
+        <!-- message Modal  -->
+        <div id="messageModel" class="hidden shadow-lg messageNodmodal">
+          <!-- Modal Content -->
+          <div
+            class="messagemodal-content bg-white rounded shadow-lg pb-[2rem]"
+          >
+            <!-- Modal Body -->
+            <div>
+              <div class="flex justify-between items-center gap-[8px] p-[18px]">
+                <div class="flex items-center gap-2">
+                  <img src="../assets/images/msgicon.png" width="15" alt="" />
+                  <h5
+                    class="text-[#4169E1] text-[14px] font-[500] tracking-[-0.38px] leading-[32px]"
+                  >
+                    Messages
+                  </h5>
+                </div>
+                <div>
+                  <img src="../assets/images/dotsicon.png" width="20" alt="" />
+                </div>
+              </div>
+              <div class="py-[16px] mt-[-1rem] overflow-auto max-h-[400px]">
+                <div class="bg-[#f0f6ff] border p-3">
+                  <h5
+                    class="text-[#1A2228] flex justify-between items-start text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                  >
+                    Nestle
+                    <img
+                      src="../assets/images/dotsicon.png"
+                      width="20"
+                      alt=""
+                    />
+                  </h5>
+                  <p class="text-[14px]">
+                    Loreal paris wants to use one of your
+                  </p>
+                  <p class="text-[10px] text-[#6C757D] text-end">05.51 am</p>
+                </div>
+
+                <div class="my-2 bg-[#fff] border p-3">
+                  <h5
+                    class="text-[#1A2228] flex justify-between items-start text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                  >
+                    Nestle
+                    <img
+                      src="../assets/images/dotsicon.png"
+                      width="20"
+                      alt=""
+                    />
+                  </h5>
+                  <p class="text-[14px]">
+                    Loreal paris wants to use one of your
+                  </p>
+                  <p class="text-[10px] text-[#6C757D] text-end">05.51 am</p>
+                </div>
+                <div class="my-2 bg-[#fff] border p-3">
+                  <h5
+                    class="text-[#1A2228] flex justify-between items-start text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                  >
+                    Nestle
+                    <img
+                      src="../assets/images/dotsicon.png"
+                      width="20"
+                      alt=""
+                    />
+                  </h5>
+                  <p class="text-[14px]">
+                    Loreal paris wants to use one of your
+                  </p>
+                  <p class="text-[10px] text-[#6C757D] text-end">05.51 am</p>
+                </div>
+                <div class="my-2 bg-[#fff] border p-3">
+                  <h5
+                    class="text-[#1A2228] flex justify-between items-start text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                  >
+                    Nestle
+                    <img
+                      src="../assets/images/dotsicon.png"
+                      width="20"
+                      alt=""
+                    />
+                  </h5>
+                  <p class="text-[14px]">
+                    Loreal paris wants to use one of your
+                  </p>
+                  <p class="text-[10px] text-[#6C757D] text-end">05.51 am</p>
+                </div>
+                <div class="my-2 bg-[#fff] border p-3">
+                  <h5
+                    class="text-[#1A2228] flex justify-between items-start text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                  >
+                    Nestle
+                    <img
+                      src="../assets/images/dotsicon.png"
+                      width="20"
+                      alt=""
+                    />
+                  </h5>
+                  <p class="text-[14px]">
+                    Loreal paris wants to use one of your
+                  </p>
+                  <p class="text-[10px] text-[#6C757D] text-end">05.51 am</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Message modal  -->
+
+        <img
+          src="../assets/images/influ-dash/mesg.png"
+          width="40"
+          style="cursor: pointer"
+          onclick=" messageopenModal()"
+        />
+        <img
+          src="../assets/images/influ-dash/bell.png"
+          width="40"
+          style="cursor: pointer"
+          onclick="notificationopenModal()"
+        />
+        <img src="../assets/images/influ-dash/profile1.png" width="40" />
+      </div>
+
+      <div class="second-div">
+        <div class="info-div">
+          <img src="../assets/images/influ-dash/profile2.png" width="70" />
+          <div>
+            <h1 class="text-[22px] font-bold">Jane Cooper</h1>
+            <h2 class="text-[14px] -mt-1">Newyork, United States</h2>
+            <h3 class="text-[13px] font-bold flex items-center gap-1">
+              <img src="../assets/images/influ-dash/clock.png" width="20" />4:55
+              Am local time.
+            </h3>
+          </div>
+        </div>
+        <div class="btn-div">
+          <div class="preview-div">
+            <img src="../assets/images/influ-dash/eye.png" width="25" />
+            <h5 class="text-[14px] font-bold text-[#4169E1]">
+              Preview Profile
+            </h5>
+          </div>
+          <a href="/dashboard/profile/contactinfo.html">
+            <div class="seeting-div">
+              <img
+                src="../assets/images/influ-dash/seetingicon.png"
+                width="20"
+              />
+              <h5 class="text-[14px] font-bold text-[#fff]">
+                Profile Settings
+              </h5>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="main-wrapper">
+        <div class="left-div">
+          <div>
+            <h1
+              class="text-white text-[16px] font-[600] leading-[40px] mb-5 max-sm:text-[12px] max-sm:leading-normal max-sm:text-center"
+            >
+              Social Media Accounts
+            </h1>
+            <div class>
+              <div
+                class="flex flex-col items-center gap-4 sm:gap-2 sm:flex-row"
+                style="margin-top: 0.5rem"
+              >
+                <img
+                  src="../assets/images/influ-dash/facebook.png"
+                  class="-mt-2"
+                  height="25"
+                  width="25"
+                />
+                <div style="margin-top: -0.6rem" class="max-sm:text-center">
+                  <h1 class="text-white p-0 m-0 text-[14px]">
+                    Facebook Followers
+                  </h1>
+                  <p class="text-white p-0 m-0 text-[12px] font-bold">100k+</p>
+                </div>
+              </div>
+              <div
+                class="flex flex-col items-center gap-4 my-5 sm:gap-2 sm:flex-row"
+              >
+                <img
+                  src="../assets/images/influ-dash/instagram.png"
+                  class="-mt-2"
+                  height="25"
+                  width="25"
+                />
+                <div style="margin-top: -0.6rem" class="max-sm:text-center">
+                  <h1 class="text-white p-0 m-0 text-[14px]">
+                    Instagram Followers
+                  </h1>
+                  <h5 class="text-white p-0 m-0 text-[12px] font-bold">
+                    100k+
+                  </h5>
+                </div>
+              </div>
+              <div
+                class="flex flex-col items-center gap-4 my-5 sm:gap-2 sm:flex-row"
+              >
+                <img
+                  src="../assets/images/influ-dash/x.png"
+                  class="-mt-2"
+                  height="25"
+                  width="25"
+                />
+                <div style="margin-top: -0.6rem" class="max-sm:text-center">
+                  <h1 class="text-white p-0 m-0 text-[14px]">X Followers</h1>
+                  <h5 class="text-white p-0 m-0 text-[12px] font-bold">
+                    100k+
+                  </h5>
+                </div>
+              </div>
+              <div
+                class="flex flex-col items-center gap-4 my-5 sm:gap-2 sm:flex-row"
+              >
+                <img
+                  src="../assets/images/influ-dash/youtube.png"
+                  class="-mt-2"
+                  height="25"
+                  width="25"
+                />
+                <div style="margin-top: -0.6rem" class="max-sm:text-center">
+                  <h1 class="text-white p-0 m-0 text-[14px]">
+                    Youtube Followers
+                  </h1>
+                  <h5 class="text-white p-0 m-0 text-[12px] font-bold">
+                    100k+
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h1
+              class="text-white text-[16px] font-[600] leading-[40px] mb-5 max-sm:text-[12px] max-sm:leading-normal max-sm:text-center"
+            >
+              Income
+            </h1>
+            <div class="p-2">
+              <p class="text-white text-[12px] font-[400] max-sm:text-center">
+                Net Income
+              </p>
+              <h2
+                class="text-white text-[16px] font-[600] max-sm:text-center leading-[40px]"
+              >
+                $948.55
+              </h2>
+
+              <div class="mt-2">
+                <p class="text-white text-[12px] font-[400] max-sm:text-center">
+                  Withdrawn
+                </p>
+                <h2
+                  class="text-white text-[16px] font-[600] max-sm:text-center leading-[40px]"
+                >
+                  $948.55
+                </h2>
+              </div>
+              <div class="mt-2">
+                <p class="text-white text-[12px] font-[400] max-sm:text-center">
+                  Pending ClearanceNet Income
+                </p>
+                <h2
+                  class="text-white text-[16px] font-[600] max-sm:text-center leading-[40px]"
+                >
+                  $948.55
+                </h2>
+              </div>
+              <div class="mt-2">
+                <p class="text-white text-[12px] font-[400] max-sm:text-center">
+                  available for withdrawl
+                </p>
+                <h2
+                  class="text-white text-[16px] font-[600] max-sm:text-center leading-[40px]"
+                >
+                  $948.55
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-div max-sm:mt-4">
+          <div class="p-5 about-div">
+            <div class="about-img-div">
+              <h1 class="text-[22px] font-bold mb-2">About</h1>
+              <img
+                src="../assets/images/influ-dash/edit.png"
+                width="20"
+                onclick="openModal()"
+              />
+            </div>
+            <p class="text-[12px] leading-5">
+              Lorem ipsum dolor sit amet consectetur. Vulputate ornare rhoncus
+              enim elementum sit pharetra placerat euismod turpis. Scelerisque
+              commodo neque tincidunt pellentesque enim leo. Elementum ut
+              consectetur nec donec. D commodo neque tincidunt pellentesque enim
+              leo. Elementum ut consectetur nec donec. D commodo neque tincidunt
+              pellentesque enim leo. Elementum ut consectetur nec donec. D
+            </p>
+          </div>
+
+          <div class="p-5 my-5 about-div">
+            <div class="about-img-div">
+              <div>
+                <h1 class="text-[22px] font-bold mb-2 max-lg:text-center">
+                  Upload Video
+                </h1>
+                <p class="text-[12px] leading-5 max-lg:text-center">
+                  Lorem ipsum dolor sit amet consectetur. Vulputate ornare
+                  rhoncus
+                </p>
+              </div>
+              <div class="select-file-div" onclick="uploadOpenModal()">
+                <div class="file-div">
+                  <img
+                    src="../assets/images/influ-dash/plusicon.png"
+                    width="18"
+                    height="18"
+                  />
+                  <p class="file-text">Select Files</p>
+                </div>
+              </div>
+            </div>
+            <div class="">
+              <p class="my-3 text-[14px] font-[600]">Portrait Collection</p>
+              <div class="flex flex-wrap gap-3">
+                <div class="lg:w-[207px] xl:w-[217px] lg:h-[300px] mt-2">
+                  <div class="max-w-sm">
+                    <div class="bg-[#fff]">
+                      <p
+                        class="text-[#797979] leading-[28px] font-[600] text-[14px] p-1 border-t-2 border-l-2 border-r-2 border-[#797979] rounded-t-[16px] text-end"
+                      >
+                        Price: $30
+                      </p>
+                    </div>
+
+                    <video class="w-full h-[230px] object-cover" controls>
+                      <!-- Add your video source here -->
+                      <source
+                        src="./assets/video/video1.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+
+                    <div class="">
+                      <p
+                        class="text-[#797979] text-[14px] p-1 border-b-2 border-l-2 border-r-2 leading-[20px] border-[#797979] rounded-b-[16px]"
+                      >
+                        Transparent
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="lg:w-[207px] xl:w-[217px] lg:h-[300px] mt-2">
+                  <div class="max-w-sm">
+                    <div class="bg-[#fff]">
+                      <p
+                        class="text-[#797979] leading-[28px] font-[600] text-[14px] p-1 border-t-2 border-l-2 border-r-2 border-[#797979] rounded-t-[16px] text-end"
+                      >
+                        Price: $30
+                      </p>
+                    </div>
+
+                    <video class="w-full h-[230px] object-cover" controls>
+                      <!-- Add your video source here -->
+                      <source
+                        src="./assets/video/video1.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+
+                    <div class="">
+                      <p
+                        class="text-[#797979] text-[14px] p-1 border-b-2 border-l-2 border-r-2 leading-[20px] border-[#797979] rounded-b-[16px]"
+                      >
+                        Transparent
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="lg:w-[207px] xl:w-[217px] lg:h-[300px] mt-2">
+                  <div class="max-w-sm">
+                    <div class="bg-[#fff]">
+                      <p
+                        class="text-[#797979] leading-[28px] font-[600] text-[14px] p-1 border-t-2 border-l-2 border-r-2 border-[#797979] rounded-t-[16px] text-end"
+                      >
+                        Price: $30
+                      </p>
+                    </div>
+
+                    <video class="w-full h-[230px] object-cover" controls>
+                      <!-- Add your video source here -->
+                      <source
+                        src="./assets/video/video1.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+
+                    <div class="">
+                      <p
+                        class="text-[#797979] text-[14px] p-1 border-b-2 border-l-2 border-r-2 leading-[20px] border-[#797979] rounded-b-[16px]"
+                      >
+                        Transparent
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="lg:w-[207px] xl:w-[217px] lg:h-[300px] mt-2">
+                  <div class="max-w-sm">
+                    <div class="bg-[#fff]">
+                      <p
+                        class="text-[#797979] leading-[28px] font-[600] text-[14px] p-1 border-t-2 border-l-2 border-r-2 border-[#797979] rounded-t-[16px] text-end"
+                      >
+                        Price: $30
+                      </p>
+                    </div>
+
+                    <video class="w-full h-[230px] object-cover" controls>
+                      <!-- Add your video source here -->
+                      <source
+                        src="./assets/video/video1.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+
+                    <div class="">
+                      <p
+                        class="text-[#797979] text-[14px] p-1 border-b-2 border-l-2 border-r-2 leading-[20px] border-[#797979] rounded-b-[16px]"
+                      >
+                        Transparent
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="">
+              <p class="my-3 text-[14px] font-bold leading-5">
+                Landscape Collection
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <div class="w-[271px] h-full md:h-[280px] mt-2">
+                  <div class="max-w-sm">
+                    <div class="">
+                      <p
+                        class="text-[#797979] leading-[28px] font-[600] text-[14px] p-1 border-t-2 border-l-2 border-r-2 border-[#797979] rounded-t-[16px] text-end"
+                      >
+                        Price: $30
+                      </p>
+                    </div>
+
+                    <video class="w-full h-[200px] object-cover" controls>
+                      <!-- Add your video source here -->
+                      <source
+                        src="./assets//video/video1.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+                    <!-- Price and Transparent Text -->
+                    <div class="">
+                      <p
+                        class="text-[#797979] text-[14px] p-2 border-b-2 border-l-2 border-r-2 leading-[20px] border-[#797979] rounded-b-[16px]"
+                      >
+                        <!-- Transparent -->
+                        &nbsp;
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-[271px] h-full md:h-[280px] mt-2">
+                  <div class="max-w-sm">
+                    <div class="">
+                      <p
+                        class="text-[#797979] leading-[28px] font-[600] text-[14px] p-1 border-t-2 border-l-2 border-r-2 border-[#797979] rounded-t-[16px] text-end"
+                      >
+                        Price: $30
+                      </p>
+                    </div>
+
+                    <video class="w-full h-[200px] object-cover" controls>
+                      <!-- Add your video source here -->
+                      <source
+                        src="./assets//video/video1.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+                    <!-- Price and Transparent Text -->
+                    <div class="">
+                      <p
+                        class="text-[#797979] text-[14px] p-2 border-b-2 border-l-2 border-r-2 leading-[20px] border-[#797979] rounded-b-[16px]"
+                      >
+                        <!-- Transparent -->
+                        &nbsp;
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-[271px] h-full md:h-[280px] mt-2">
+                  <div class="max-w-sm">
+                    <div class="">
+                      <p
+                        class="text-[#797979] leading-[28px] font-[600] text-[14px] p-1 border-t-2 border-l-2 border-r-2 border-[#797979] rounded-t-[16px] text-end"
+                      >
+                        Price: $30
+                      </p>
+                    </div>
+
+                    <video class="w-full h-[200px] object-cover" controls>
+                      <!-- Add your video source here -->
+                      <source
+                        src="./assets//video/video1.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+                    <!-- Price and Transparent Text -->
+                    <div class="">
+                      <p
+                        class="text-[#797979] text-[14px] p-2 border-b-2 border-l-2 border-r-2 leading-[20px] border-[#797979] rounded-b-[16px]"
+                      >
+                        <!-- Transparent -->
+                        &nbsp;
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-div" style="margin-top: 1.5rem">
+            <div class="about-img-div">
+              <h1 class="text-[22px] font-bold mb-2">Upload Vocal Recording</h1>
+            </div>
+            <p class="text-[12px] max-lg:text-center">
+              Lorem ipsum dolor sit amet consectetur. Craseget euismod a
+              pellentesque tellus id quis eget.
+            </p>
+
+            <div class="select-file-div" onclick="uploadVoiceWorkOpenModal()">
+              <div class="file-div">
+                <img
+                  src="../assets/images/influ-dash/plusicon.png"
+                  width="20"
+                />
+                <p class="file-text">Select Files</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-5 about-div" style="margin-top: 1.5rem">
+            <div class="about-img-div">
+              <h1 class="text-[22px] font-bold mb-2">Work History</h1>
+              <div class="flex gap-2">
+                <img
+                  src="../assets/images/influ-dash/plusicon2.png "
+                  width="20"
+                  onclick="uploadEditWorkOpenModal()"
+                />
+                <img src="../assets/images/influ-dash/edit.png" width="20" />
+              </div>
+            </div>
+
+            <div class="brand-info-div">
+              <img src="../assets/images/influ-dash/lorealimg.png" />
+              <div class="flex flex-col gap-1">
+                <h1 class="text-[12px] font-bold">Loreal Paris</h1>
+                <h2 class="text-[10px] text-[#787878] font-bold">
+                  May 29, 2017
+                </h2>
+                <p class="text-[12px]">
+                  Lorem ipsum dolor sit amet consectetur. Vulputate ornare
+                  rhoncus enim elementum sit pharetra placerat euismod turpis.
+                  Scelerisque commodo neque tincidunt pellentesque enim leo.
+                  Elementum ut consectetur nec donec. Dolor risus amet feugiat
+                  malesuada sed aenean. Nisl porta molestie quisque eget volutp
+                </p>
+              </div>
+            </div>
+            <hr class="mt-2" />
+
+            <div class="brand-info-div" style="margin-top: 2rem">
+              <img src="../assets/images/influ-dash/garnier.png" width="60" />
+              <div class="flex flex-col gap-1">
+                <h1 class="text-[12px] font-bold">Loreal Paris</h1>
+                <h2 class="text-[10px] text-[#787878] font-bold">
+                  May 29, 2017
+                </h2>
+                <p class="text-[12px]">
+                  Lorem ipsum dolor sit amet consectetur. Vulputate ornare
+                  rhoncus enim elementum sit pharetra placerat euismod turpis.
+                  Scelerisque commodo neque tincidunt pellentesque enim leo.
+                  Elementum ut consectetur nec donec. Dolor risus amet feugiat
+                  malesuada sed aenean. Nisl porta molestie quisque eget volutp
+                </p>
+              </div>
+            </div>
+            <hr class="mt-2" />
+            <div class="brand-info-div2" style="margin-top: 2rem">
+              <img src="../assets/images/influ-dash/garnier.png" width="60" />
+              <div class="flex flex-col gap-1">
+                <h1 class="text-[12px] font-bold">Loreal Paris</h1>
+                <h2 class="text-[10px] text-[#787878] font-bold">
+                  May 29, 2017
+                </h2>
+                <p class="text-[12px]">
+                  Lorem ipsum dolor sit amet consectetur. Vulputate ornare
+                  rhoncus enim elementum sit pharetra placerat euismod turpis.
+                  Scelerisque commodo neque tincidunt pellentesque enim leo.
+                  Elementum ut consectetur nec donec. Dolor risus amet feugiat
+                  malesuada sed aenean. Nisl porta molestie quisque eget volutp
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // JavaScript functions to control the modal
+    function openModal() {
+      document.getElementById("myModal").classList.add("show");
+    }
+
+    function closeModal() {
+      document.getElementById("myModal").classList.remove("show");
+    }
+
+    function saveChanges() {
+      // Add your save logic here
+      alert("Changes saved!");
+      closeModal();
+    }
+
+    // Close modal if user clicks outside of it
+    window.onclick = function (event) {
+      var modal = document.getElementById("myModal");
+
+      if (event.target === modal) {
+        closeModal();
+      }
+      var notification = document.getElementById("notificationModel");
+
+      if (notification === event.target) {
+        notificationcloseModal();
+      }
+    };
+
+    function notificationopenModal() {
+      var notificationModal = document.getElementById("notificationModel");
+      var messageModal = document.getElementById("messageModel");
+      messageModal.classList.add("hidden");
+
+      if (notificationModal.classList.contains("hidden")) {
+        notificationModal.classList.remove("hidden");
+      } else {
+        notificationModal.classList.add("hidden");
+      }
+    }
+
+    // message model
+
+    function messageopenModal() {
+      var messageModal = document.getElementById("messageModel");
+      var notificationModal = document.getElementById("notificationModel");
+      notificationModal.classList.add("hidden");
+
+      if (messageModal.classList.contains("hidden")) {
+        messageModal.classList.remove("hidden");
+      } else {
+        messageModal.classList.add("hidden");
+      }
+    }
+
+    // message model
+
+    function uploadOpenModal() {
+      var modal = document.getElementById("videoUploadModel");
+      modal.style.display = "flex";
+    }
+
+    function uploadcloseModal() {
+      var modal = document.getElementById("videoUploadModel");
+      modal.style.display = "none";
+    }
+
+    function uploadEditWorkOpenModal() {
+      var modal = document.getElementById("editUploadModel");
+      modal.style.display = "flex";
+    }
+
+    function uploadEditWorkcloseModal() {
+      var modal = document.getElementById("editUploadModel");
+      modal.style.display = "none";
+    }
+
+    function uploadVoiceWorkOpenModal() {
+      var modal = document.getElementById("audioUploadModel");
+      modal.style.display = "flex";
+    }
+
+    function uploadVoiceWorkcloseModal() {
+      var modal = document.getElementById("audioUploadModel");
+      modal.style.display = "none";
+    }
+  </script>
+</html>
