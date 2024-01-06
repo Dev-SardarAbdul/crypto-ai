@@ -1249,7 +1249,6 @@ a {
 
 input:focus {
   outline: none !important;
-  border: none !important;
 }
 
 input::-moz-placeholder {
@@ -1435,9 +1434,9 @@ input::placeholder {
 
 #dropdown {
   /* border: 2px solid #3498db;  */
-  border: 1px solid #000 !important;
-  height: 52px;
-  border-radius: 22px !important;
+  border: 1px solid #787878 !important;
+  height: 56px;
+  border-radius: 16px !important;
 }
 
 .jdropdown-header {
@@ -1491,10 +1490,6 @@ input::placeholder {
   /* margin:2rem; */
 }
 
-#datepicker {
-  margin-left: 2rem;
-}
-
 .accordion {
   background: transparent;
   border: 1px solid #dee2e6;
@@ -1516,15 +1511,6 @@ input::placeholder {
 
 .accordion-label {
   cursor: pointer !important;
-}
-
-#datepicker {
-  border: 1px solid #d0d0d0;
-  border-radius: 5px;
-  padding: 0.3rem;
-  margin: 0;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
 }
 
 #mobileNavbar {
@@ -1574,12 +1560,12 @@ input::placeholder {
 }
 
 .image-dropdown {
-  border-radius: 16px;
-  background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid var(--Stroke, #787878);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(2px);
   width: 212px;
-  padding: 12px;
+  padding: 12px 24px;
   gap: 6px;
   display: none;
 }
@@ -1592,10 +1578,29 @@ input::placeholder {
 }
 
 .create-video-modal {
-  border-radius: 88px;
+  border-radius: 16px;
   background: rgba(255, 255, 255, 1);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 2rem;
+}
+
+.create-video-modal::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.create-video-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.create-video-modal::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.create-video-modal::-webkit-scrollbar-thumb:hover {
+  background: transparent;
 }
 
 @media (max-width: 576px) {

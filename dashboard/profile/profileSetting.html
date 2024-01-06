@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="../influenserstyle.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap"
-    rel="stylesheet"
-  />
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="main-section mx-0 lg:mx-32">
-      <div class="first-div relative">
+    <div>
+      <div class="relative mx-4 xl:mx-16 first-div">
         <!-- notify Modal  -->
-        <div id="notificationModel" class="notifymodal shadow-lg hidden">
+        <div id="notificationModel" class="hidden shadow-lg notifymodal">
           <!-- Modal Content -->
           <div class="notifymodal-content bg-white rounded shadow-lg pb-[2rem]">
             <!-- Modal Body -->
@@ -29,213 +29,246 @@
                 </h5>
               </div>
               <div class="overflow-auto max-h-[400px]">
-              <div class="border-style px-[32px] py-[16px] mt-[-1rem] ">
-                <div class="flex justify-between items-center">
-                  <h5
-                    class="text-[#1A2228] text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                <div class="border-style px-[32px] py-[16px] mt-[-1rem]">
+                  <div class="flex items-center justify-between">
+                    <h5
+                      class="text-[#1A2228] text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                    >
+                      Collaboration request
+                    </h5>
+                    <p class="text-[#6C757D] text-[12px] font-[400]">
+                      Last updated 3 mins ago
+                    </p>
+                  </div>
+                  <p
+                    class="text-[#1A2228] text-[14px] font-[400] tracking-[-0.304px] leading-[18px] mt-[.5rem]"
                   >
-                    Collaboration request
-                  </h5>
-                  <p class="text-[#6C757D] text-[12px] font-[400]">
-                    Last updated 3 mins ago
+                    Loreal paris wants to use one of your uploaded videos.
                   </p>
-                </div>
-                <p
-                  class="text-[#1A2228] text-[14px] font-[400] tracking-[-0.304px] leading-[18px] mt-[.5rem]"
-                >
-                  Loreal paris wants to use one of your uploaded videos.
-                </p>
-                <div class="flex gap-[12px] mt-[.5rem]">
-                  <div
-                    class="flex gap-[10px] max-md:gap-1 items-center pt-[4px] pr-[12px] pb-[4px] pl-[8px] rounded-[16px] border border-solid border-[#4067DD]"
-                  >
-                    <img src="../../assets/images/influ-dash/eye.png" width="20" />
-                    <h5
-                      class="text-[#4067DD] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                  <div class="flex gap-[12px] mt-[.5rem]">
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center pt-[4px] pr-[12px] pb-[4px] pl-[8px] rounded-[16px] border border-solid border-[#4067DD]"
                     >
-                      Review
-                    </h5>
-                  </div>
-                  
-                  <div
-                  class=" flex gap-[10px] max-md:gap-1 items-center   px-3   rounded-[16px] border border-solid border-[#4067DD] bg-[#4067DD]"
-                >
-                  <img src="../../assets/images/influ-dash/check.png" width="20" />
-                  <h5
-                    class="text-[#fff] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
-                  >
-                    Accept
-                  </h5>
-                </div>
-               
-                  <div
-                    class="flex gap-[10px] max-md:gap-1 items-center   px-3  rounded-[16px] bg-[#F04438]"
-                  >
-                    <img src="../../assets/images/influ-dash/cross.png" width="20" />
-                    <h5
-                      class="text-[#fff] text-[14px] font-[400] leading-[18px]  max-md:text-[12px]"
+                      <img
+                        src="../../assets/images/influ-dash/eye.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#4067DD] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Review
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] border border-solid border-[#4067DD] bg-[#4067DD]"
                     >
-                      Reject
-                    </h5>
+                      <img
+                        src="../../assets/images/influ-dash/check.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Accept
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] bg-[#F04438]"
+                    >
+                      <img
+                        src="../../assets/images/influ-dash/cross.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] max-md:text-[12px]"
+                      >
+                        Reject
+                      </h5>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="border-style px-[32px] py-[16px] mt-[-1rem] ">
-                <div class="flex justify-between items-center">
-                  <h5
-                    class="text-[#1A2228] text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                <div class="border-style px-[32px] py-[16px] mt-[-1rem]">
+                  <div class="flex items-center justify-between">
+                    <h5
+                      class="text-[#1A2228] text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                    >
+                      Collaboration request
+                    </h5>
+                    <p class="text-[#6C757D] text-[12px] font-[400]">
+                      Last updated 3 mins ago
+                    </p>
+                  </div>
+                  <p
+                    class="text-[#1A2228] text-[14px] font-[400] tracking-[-0.304px] leading-[18px] mt-[.5rem]"
                   >
-                    Collaboration request
-                  </h5>
-                  <p class="text-[#6C757D] text-[12px] font-[400]">
-                    Last updated 3 mins ago
+                    Loreal paris wants to use one of your uploaded videos.
                   </p>
-                </div>
-                <p
-                  class="text-[#1A2228] text-[14px] font-[400] tracking-[-0.304px] leading-[18px] mt-[.5rem]"
-                >
-                  Loreal paris wants to use one of your uploaded videos.
-                </p>
-                <div class="flex gap-[12px] mt-[.5rem]">
-                  <div
-                    class="flex gap-[10px] max-md:gap-1 items-center pt-[4px] pr-[12px] pb-[4px] pl-[8px] rounded-[16px] border border-solid border-[#4067DD]"
-                  >
-                    <img src="../../assets/images/influ-dash/eye.png" width="20" />
-                    <h5
-                      class="text-[#4067DD] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                  <div class="flex gap-[12px] mt-[.5rem]">
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center pt-[4px] pr-[12px] pb-[4px] pl-[8px] rounded-[16px] border border-solid border-[#4067DD]"
                     >
-                      Review
-                    </h5>
-                  </div>
-                  
-                  <div
-                  class=" flex gap-[10px] max-md:gap-1 items-center   px-3   rounded-[16px] border border-solid border-[#4067DD] bg-[#4067DD]"
-                >
-                  <img src="../../assets/images/influ-dash/check.png" width="20" />
-                  <h5
-                    class="text-[#fff] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
-                  >
-                    Accept
-                  </h5>
-                </div>
-               
-                  <div
-                    class="flex gap-[10px] max-md:gap-1 items-center   px-3  rounded-[16px] bg-[#F04438]"
-                  >
-                    <img src="../../assets/images/influ-dash/cross.png" width="20" />
-                    <h5
-                      class="text-[#fff] text-[14px] font-[400] leading-[18px]  max-md:text-[12px]"
+                      <img
+                        src="../../assets/images/influ-dash/eye.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#4067DD] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Review
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] border border-solid border-[#4067DD] bg-[#4067DD]"
                     >
-                      Reject
-                    </h5>
+                      <img
+                        src="../../assets/images/influ-dash/check.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Accept
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] bg-[#F04438]"
+                    >
+                      <img
+                        src="../../assets/images/influ-dash/cross.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] max-md:text-[12px]"
+                      >
+                        Reject
+                      </h5>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="border-style px-[32px] py-[16px] mt-[-1rem] ">
-                <div class="flex justify-between items-center">
-                  <h5
-                    class="text-[#1A2228] text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                <div class="border-style px-[32px] py-[16px] mt-[-1rem]">
+                  <div class="flex items-center justify-between">
+                    <h5
+                      class="text-[#1A2228] text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                    >
+                      Collaboration request
+                    </h5>
+                    <p class="text-[#6C757D] text-[12px] font-[400]">
+                      Last updated 3 mins ago
+                    </p>
+                  </div>
+                  <p
+                    class="text-[#1A2228] text-[14px] font-[400] tracking-[-0.304px] leading-[18px] mt-[.5rem]"
                   >
-                    Collaboration request
-                  </h5>
-                  <p class="text-[#6C757D] text-[12px] font-[400]">
-                    Last updated 3 mins ago
+                    Loreal paris wants to use one of your uploaded videos.
                   </p>
-                </div>
-                <p
-                  class="text-[#1A2228] text-[14px] font-[400] tracking-[-0.304px] leading-[18px] mt-[.5rem]"
-                >
-                  Loreal paris wants to use one of your uploaded videos.
-                </p>
-                <div class="flex gap-[12px] mt-[.5rem]">
-                  <div
-                    class="flex gap-[10px] max-md:gap-1 items-center pt-[4px] pr-[12px] pb-[4px] pl-[8px] rounded-[16px] border border-solid border-[#4067DD]"
-                  >
-                    <img src="../../assets/images/influ-dash/eye.png" width="20" />
-                    <h5
-                      class="text-[#4067DD] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                  <div class="flex gap-[12px] mt-[.5rem]">
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center pt-[4px] pr-[12px] pb-[4px] pl-[8px] rounded-[16px] border border-solid border-[#4067DD]"
                     >
-                      Review
-                    </h5>
-                  </div>
-                  
-                  <div
-                  class=" flex gap-[10px] max-md:gap-1 items-center   px-3   rounded-[16px] border border-solid border-[#4067DD] bg-[#4067DD]"
-                >
-                  <img src="../../assets/images/influ-dash/check.png" width="20" />
-                  <h5
-                    class="text-[#fff] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
-                  >
-                    Accept
-                  </h5>
-                </div>
-               
-                  <div
-                    class="flex gap-[10px] max-md:gap-1 items-center   px-3  rounded-[16px] bg-[#F04438]"
-                  >
-                    <img src="../../assets/images/influ-dash/cross.png" width="20" />
-                    <h5
-                      class="text-[#fff] text-[14px] font-[400] leading-[18px]  max-md:text-[12px]"
+                      <img
+                        src="../../assets/images/influ-dash/eye.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#4067DD] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Review
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] border border-solid border-[#4067DD] bg-[#4067DD]"
                     >
-                      Reject
-                    </h5>
+                      <img
+                        src="../../assets/images/influ-dash/check.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Accept
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] bg-[#F04438]"
+                    >
+                      <img
+                        src="../../assets/images/influ-dash/cross.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] max-md:text-[12px]"
+                      >
+                        Reject
+                      </h5>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="border-style px-[32px] py-[16px] mt-[-1rem] ">
-                <div class="flex justify-between items-center">
-                  <h5
-                    class="text-[#1A2228] text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                <div class="border-style px-[32px] py-[16px] mt-[-1rem]">
+                  <div class="flex items-center justify-between">
+                    <h5
+                      class="text-[#1A2228] text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
+                    >
+                      Collaboration request
+                    </h5>
+                    <p class="text-[#6C757D] text-[12px] font-[400]">
+                      Last updated 3 mins ago
+                    </p>
+                  </div>
+                  <p
+                    class="text-[#1A2228] text-[14px] font-[400] tracking-[-0.304px] leading-[18px] mt-[.5rem]"
                   >
-                    Collaboration request
-                  </h5>
-                  <p class="text-[#6C757D] text-[12px] font-[400]">
-                    Last updated 3 mins ago
+                    Loreal paris wants to use one of your uploaded videos.
                   </p>
-                </div>
-                <p
-                  class="text-[#1A2228] text-[14px] font-[400] tracking-[-0.304px] leading-[18px] mt-[.5rem]"
-                >
-                  Loreal paris wants to use one of your uploaded videos.
-                </p>
-                <div class="flex gap-[12px] mt-[.5rem]">
-                  <div
-                    class="flex gap-[10px] max-md:gap-1 items-center pt-[4px] pr-[12px] pb-[4px] pl-[8px] rounded-[16px] border border-solid border-[#4067DD]"
-                  >
-                    <img src="../../assets/images/influ-dash/eye.png" width="20" />
-                    <h5
-                      class="text-[#4067DD] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                  <div class="flex gap-[12px] mt-[.5rem]">
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center pt-[4px] pr-[12px] pb-[4px] pl-[8px] rounded-[16px] border border-solid border-[#4067DD]"
                     >
-                      Review
-                    </h5>
-                  </div>
-                  
-                  <div
-                  class=" flex gap-[10px] max-md:gap-1 items-center   px-3   rounded-[16px] border border-solid border-[#4067DD] bg-[#4067DD]"
-                >
-                  <img src="../../assets/images/influ-dash/check.png" width="20" />
-                  <h5
-                    class="text-[#fff] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
-                  >
-                    Accept
-                  </h5>
-                </div>
-               
-                  <div
-                    class="flex gap-[10px] max-md:gap-1 items-center   px-3  rounded-[16px] bg-[#F04438]"
-                  >
-                    <img src="../../assets/images/influ-dash/cross.png" width="20" />
-                    <h5
-                      class="text-[#fff] text-[14px] font-[400] leading-[18px]  max-md:text-[12px]"
+                      <img
+                        src="../../assets/images/influ-dash/eye.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#4067DD] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Review
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] border border-solid border-[#4067DD] bg-[#4067DD]"
                     >
-                      Reject
-                    </h5>
+                      <img
+                        src="../../assets/images/influ-dash/check.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] tracking-[-0.304px] max-md:text-[12px]"
+                      >
+                        Accept
+                      </h5>
+                    </div>
+
+                    <div
+                      class="flex gap-[10px] max-md:gap-1 items-center px-3 rounded-[16px] bg-[#F04438]"
+                    >
+                      <img
+                        src="../../assets/images/influ-dash/cross.png"
+                        width="20"
+                      />
+                      <h5
+                        class="text-[#fff] text-[14px] font-[400] leading-[18px] max-md:text-[12px]"
+                      >
+                        Reject
+                      </h5>
+                    </div>
                   </div>
                 </div>
-              </div>
- 
- 
-              
               </div>
             </div>
           </div>
@@ -243,7 +276,7 @@
         <!-- notfiy modal  -->
 
         <!-- message Modal  -->
-        <div id="messageModel" class="messageNodmodal shadow-lg hidden">
+        <div id="messageModel" class="hidden shadow-lg messageNodmodal">
           <!-- Modal Content -->
           <div
             class="messagemodal-content bg-white rounded shadow-lg pb-[2rem]"
@@ -252,7 +285,7 @@
             <div>
               <div class="flex justify-between items-center gap-[8px] p-[18px]">
                 <div class="flex items-center gap-2">
-                  <img src="../../assets/images/msgicon.png" width="15" alt="" />
+                  <img src="../../assets/images/msgicon.png" width="15" alt />
                   <h5
                     class="text-[#4169E1] text-[14px] font-[500] tracking-[-0.38px] leading-[32px]"
                   >
@@ -260,11 +293,11 @@
                   </h5>
                 </div>
                 <div>
-                  <img src="../../assets/images/dotsicon.png" width="20" alt="" />
+                  <img src="../../assets/images/dotsicon.png" width="20" alt />
                 </div>
               </div>
-              <div class=" py-[16px] mt-[-1rem] overflow-auto max-h-[400px]">
-                <div class=" bg-[#f0f6ff] border p-3">
+              <div class="py-[16px] mt-[-1rem] overflow-auto max-h-[400px]">
+                <div class="bg-[#f0f6ff] border p-3">
                   <h5
                     class="text-[#1A2228] flex justify-between items-start text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
                   >
@@ -272,16 +305,16 @@
                     <img
                       src="../../assets/images/dotsicon.png"
                       width="20"
-                      alt=""
+                      alt
                     />
                   </h5>
-                  <p class="text-[14px]">Loreal paris wants to use one of your</p>
+                  <p class="text-[14px]">
+                    Loreal paris wants to use one of your
+                  </p>
                   <p class="text-[10px] text-[#6C757D] text-end">05.51 am</p>
-                  
-                  
                 </div>
-                
-                <div class=" my-2 bg-[#fff] border p-3">
+
+                <div class="my-2 bg-[#fff] border p-3">
                   <h5
                     class="text-[#1A2228] flex justify-between items-start text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
                   >
@@ -289,15 +322,15 @@
                     <img
                       src="../../assets/images/dotsicon.png"
                       width="20"
-                      alt=""
+                      alt
                     />
                   </h5>
-                  <p class="text-[14px]">Loreal paris wants to use one of your</p>
+                  <p class="text-[14px]">
+                    Loreal paris wants to use one of your
+                  </p>
                   <p class="text-[10px] text-[#6C757D] text-end">05.51 am</p>
-                  
-                  
                 </div>
-                <div class=" my-2 bg-[#fff] border p-3">
+                <div class="my-2 bg-[#fff] border p-3">
                   <h5
                     class="text-[#1A2228] flex justify-between items-start text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
                   >
@@ -305,15 +338,15 @@
                     <img
                       src="../../assets/images/dotsicon.png"
                       width="20"
-                      alt=""
+                      alt
                     />
                   </h5>
-                  <p class="text-[14px]">Loreal paris wants to use one of your</p>
+                  <p class="text-[14px]">
+                    Loreal paris wants to use one of your
+                  </p>
                   <p class="text-[10px] text-[#6C757D] text-end">05.51 am</p>
-                  
-                  
                 </div>
-                <div class=" my-2 bg-[#fff] border p-3">
+                <div class="my-2 bg-[#fff] border p-3">
                   <h5
                     class="text-[#1A2228] flex justify-between items-start text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
                   >
@@ -321,15 +354,15 @@
                     <img
                       src="../../assets/images/dotsicon.png"
                       width="20"
-                      alt=""
+                      alt
                     />
                   </h5>
-                  <p class="text-[14px]">Loreal paris wants to use one of your</p>
+                  <p class="text-[14px]">
+                    Loreal paris wants to use one of your
+                  </p>
                   <p class="text-[10px] text-[#6C757D] text-end">05.51 am</p>
-                  
-                  
                 </div>
-                  <div class=" my-2 bg-[#fff] border p-3">
+                <div class="my-2 bg-[#fff] border p-3">
                   <h5
                     class="text-[#1A2228] flex justify-between items-start text-[14px] font-[500] tracking-[-0.266px] leading-[32px]"
                   >
@@ -337,15 +370,14 @@
                     <img
                       src="../../assets/images/dotsicon.png"
                       width="20"
-                      alt=""
+                      alt
                     />
                   </h5>
-                  <p class="text-[14px]">Loreal paris wants to use one of your</p>
+                  <p class="text-[14px]">
+                    Loreal paris wants to use one of your
+                  </p>
                   <p class="text-[10px] text-[#6C757D] text-end">05.51 am</p>
-                  
-                  
-                </div>  
-               
+                </div>
               </div>
             </div>
           </div>
@@ -366,15 +398,18 @@
         />
         <img src="../../assets/images/influ-dash/profile1.png" width="40" />
       </div>
-      <div class="second-div">
+
+      <div class="mx-4 xl:mx-16 second-div">
         <div class="info-div">
-          <img src="../../assets/images/influ-dash/profile2.png" width="70" />
+          <img src="../../assets/images/influ-dash/profile2.png" width="80" />
           <div>
-            <h1 class="text-[22px] font-bold">Jane Cooper</h1>
-            <h2 class="text-[14px] -mt-1">Newyork, United States</h2>
-            <h3 class="text-[13px] font-bold flex items-center gap-1">
-              <img src="../../assets/images/influ-dash/clock.png" width="20" />4:55
-              Am local time.
+            <h1 class="text-[22px] font-[600]">Jane Cooper</h1>
+            <h2 class="text-[14px] font-[500]">Newyork, United States</h2>
+            <h3 class="text-[14px] font-[500] mt-1 flex items-center gap-1">
+              <img
+                src="../../assets/images/influ-dash/clock.png"
+                width="20"
+              />4:55 Am local time.
             </h3>
           </div>
         </div>
@@ -386,32 +421,43 @@
             </h5>
           </div>
           <div class="seeting-div">
-            <img src="../../assets/images/influ-dash/seetingicon.png" width="20" />
+            <img
+              src="../../assets/images/influ-dash/seetingicon.png"
+              width="20"
+            />
             <h5 class="text-[14px] font-bold text-[#fff]">Profile Settings</h5>
           </div>
         </div>
       </div>
 
-      <div class="main-wrapper">
-        <div class="left-div min-h-full">
-          <h1 class="text-white text-[22px] font-bold mb-5">Settings</h1>
+      <div class="pb-8 min-h-[calc(100vh-300px)] max-md:mx-4 main-wrapper">
+        <div class="min-h-full left-div rounded-[22px]">
+          <h1 class="text-white text-[24px] font-bold mb-5">Settings</h1>
 
           <ul class="text-white">
-            <a href="contactinfo.html"><li class="my-3 text-[14px] font-[500] ">Contact
-                Info</li></a>
-            <a href="profileSetting.html"><li
-                class=" my-3 font-semibold">Profile Settings</li></a>
-            <a href="getpaid.html"> <li class="my-3 text-[14px] font-[500]">Get
-                Paid</li></a>
-            <a href="passwordsecurity.html"> <li
-                class="my-3 text-[14px] font-[500]">Password & Security</li></a>
-            <a href="notification.html"> <li
-                class="my-3 text-[14px] font-[500]">Notification
-                Settings</li></a>
+            <a href="contactinfo.html"
+              ><li class="my-3 text-[14px] font-[500]">Contact Info</li></a
+            >
+            <a href="profileSetting.html"
+              ><li class="my-3 font-semibold">Profile Settings</li></a
+            >
+            <a href="getpaid.html">
+              <li class="my-3 text-[14px] font-[500]">Get Paid</li></a
+            >
+            <a href="passwordsecurity.html">
+              <li class="my-3 text-[14px] font-[500]">
+                Password & Security
+              </li></a
+            >
+            <a href="notification.html">
+              <li class="my-3 text-[14px] font-[500]">
+                Notification Settings
+              </li></a
+            >
           </ul>
         </div>
-        <div class="right-div">
-          <div class="about-div p-5">
+        <div class="mr-4 xl:mr-16 right-div">
+          <div class="p-5 about-div">
             <div class="about-img-div">
               <h1 class="text-[22px] font-bold mb-2">Profile Setting</h1>
               <img
@@ -422,41 +468,36 @@
             </div>
             <form>
               <!-- User Name Input -->
-              <div class="mb-4 w-full">
-                <label
-                  for="month"
-                  class="my-3 block  text-[10px] font-semibold"
+              <div class="w-full mb-4">
+                <label for="month" class="my-3 block text-[14px] font-[600]"
                   >Visibility</label
                 >
                 <select
                   id="month"
                   name="month"
-                  class="text-[12px] w-full p-2 rounded-[15px] border border-[#000] focus:outline-none focus:border-blue-500"
+                  class="text-[14px] w-full p-2 px-4 rounded-[22px] h-[52px] border border-[#2C2D2F]"
                 >
                   <!-- Add options for months -->
                   <option value="1">Public</option>
                   <option value="2">Private</option>
-                  
+
                   <!-- Add more months as needed -->
                 </select>
               </div>
 
-              <div class="mb-4 w-full">
-                <label
-                  for="month"
-                  class="my-3 block  text-[10px] font-semibold"
+              <div class="w-full mb-4">
+                <label for="month" class="my-3 block text-[14px] font-[600]"
                   >Project Preference</label
                 >
                 <select
                   id="month"
                   name="month"
-                  class="text-[12px] w-full p-2 rounded-[15px] border border-[#000] focus:border-blue-500"
+                  class="text-[14px] w-full p-2 px-4 rounded-[22px] h-[52px] border border-[#2C2D2F]"
                 >
                   <!-- Add options for months -->
                   <option value="1">Both Short Term and Long Term</option>
                   <option value="1">Both Short Term and Long Term</option>
-               
-                  
+
                   <!-- Add more months as needed -->
                 </select>
               </div>
@@ -464,14 +505,11 @@
               <!-- Submit Button -->
             </form>
           </div>
-
-         
         </div>
       </div>
     </div>
   </body>
   <script>
     // JavaScript functions to control the modal
-   
   </script>
 </html>

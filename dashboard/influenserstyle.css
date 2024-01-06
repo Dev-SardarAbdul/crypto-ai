@@ -67,10 +67,11 @@ body {
   gap: 8px;
   border-radius: 32px;
   border: 2px solid #4169e1;
-  width: 176px;
-  height: 37px;
   display: flex;
   justify-content: center;
+  width: 188px;
+  height: 48px;
+  cursor: pointer;
 }
 
 .seeting-text {
@@ -85,11 +86,12 @@ body {
   border-radius: 32px;
   background: #4169e1;
   display: flex;
-  width: 176px;
-  height: 37px;
   justify-content: center;
   align-items: center;
   gap: 8px;
+  width: 188px;
+  height: 48px;
+  cursor: pointer;
 }
 
 .btn-div {
@@ -130,9 +132,14 @@ body {
   }
 }
 
+@media (max-width: 576px) {
+  .second-div {
+    padding: 24px 16px;
+  }
+}
+
 .main-wrapper {
   margin-top: 2rem;
-  padding-bottom: 2rem;
   display: flex;
   gap: 30px;
 }
@@ -156,7 +163,6 @@ body {
   flex-direction: column;
   align-items: flex-start;
   align-self: stretch;
-  border-radius: 22px;
   background: #2c2d2f;
 }
 
@@ -306,12 +312,13 @@ body {
   border-radius: 32px;
   background: #4169e1;
   display: flex;
-  width: 170px;
-  height: 35px;
   justify-content: center;
   align-items: center;
   gap: 8px;
   margin-top: 0.3rem;
+  width: 188px;
+  height: 48px;
+  cursor: pointer;
 }
 
 .select-file-div {
@@ -436,9 +443,6 @@ body {
 
 .videomodal-content {
   background-color: #fff;
-  max-width: 1600px !important;
-  width: 600px !important;
-  height: 350px !important;
   /* padding: 20px; */
   border-radius: 8px;
 }
@@ -455,33 +459,26 @@ body {
 
 .workHistory-content {
   background-color: #fff;
-  max-width: 1600px !important;
-  width: 500px !important;
-  height: 460px !important;
-  border-radius: 8px;
 }
 
 .passwordModal-content {
   background-color: #fff;
-  max-width: 1600px !important;
-  width: 600px !important;
-  height: 390px !important;
-  border-radius: 8px;
 }
 
 .addNumberModal-content {
   background-color: #fff;
-  max-width: 1600px !important;
-  width: 600px !important;
-  height: 280px !important;
-  border-radius: 8px;
 }
 
 .deleteModal-content {
   background-color: #fff;
   max-width: 1600px !important;
   width: 600px !important;
-  height: 250px !important;
   border-radius: 8px;
   border: 0.1px solid var(--Gray-400, #8593a1);
+}
+
+@media (max-width: 576px) {
+  .deleteModal-content {
+    width: 100% !important;
+  }
 }
