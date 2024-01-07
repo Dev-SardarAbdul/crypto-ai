@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en" data-mantine-color-scheme="light" data-arp-injected="true">
+  <head>
+    <style data-fullcalendar></style>
+    <script
+      type="text/javascript"
+      id="www-widgetapi-script"
+      src="https://www.youtube.com/s/player/da154528/www-widgetapi.vflset/www-widgetapi.js"
+      async
+    ></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <script type="text/javascript" src="./sidebar.js"></script>
+
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <title>ManyFace</title>
+
+    <script
+      type="text/javascript"
+      charset="utf8"
+      async
+      src="https://www.youtube.com/iframe_api"
+    ></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-cDyBeaMu.css">
+  </head>
+
+  <body cz-shortcut-listen="true">
+    <div id="root">
+      <div class="flex flex-grow h-screen overflow-hidden">
+        <div>
+          <div>
+            <!-- mobile sidebar -->
+            <div id="mobileSidebarIcon">
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 24 24"
+                class="absolute block lg:hidden top-4 left-4 text-[32px]"
+                color="#000"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                style="color: rgb(0, 0, 0)"
+              >
+                <path
+                  d="M16 18V20H5V18H16ZM21 11V13H3V11H21ZM19 4V6H8V4H19Z"
+                ></path>
+              </svg>
+            </div>
+
+            <div id="mobileSidebar" class="lg:hidden">
+              <div
+                id="mobileNavbar"
+                class="fixed top-0 left-0 z-20 w-[320px] h-full px-2 py-4 bg-[#2C2D2F] flex flex-col justify-start items-start"
+              >
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 512 512"
+                  class="absolute top-4 right-4 cursor-pointer text-white text-[32px]"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                  id="closeSidebar"
+                >
+                  <path
+                    d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+                  ></path>
+                </svg>
+                <div class="mt-[2rem] h-screen overflow-hidden flex flex-col">
+                  <div class="bg-[#2C2D2F] flex-1">
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA6CAYAAADhu0ooAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAW/SURBVHgB7ZprbBRVFMfPLt0WKLWUbdEoVaTVUikJafygptESSSoJ0cZEqRFRYwxB8JGosX5qNJGkYP0iwajRmGBQQhR8ITYWAjVNLIZiKbVQ26q1Wrqt3b62dB+9/o9zNh2XZbuzs9vHZv7Jj5m9c+fOPfdx7rmXElmyZMmSpSSVUmo5WETJLBiYBhrBhyCFklUwbrfSNAl2UjIKhpWCy2pKQ6CYkkEwxCbXpaBTXakvKRkEQzbJdZcKrzFwP3CACpqPQsUrwedgJbikrq7T4qQawH00n4QK3w5GwBHwuoosdkxPgh9BKw9zmi9CZT8TI5pAj5rO0snJ84FAoE1+vkgJko3iIBl23BvnwFlgdJ30yztusBpsBI02m62V4iTTCzeMvBOXT8FPoC3GMoPvcGM9Dh4FqdyAMPZ3mm2hItngvJryon3KvNh5BdfcU2ouRFGoxCsqsfKCZygOinmOogJOXLpABiVWHaAQQ9hHJmSn2LWNEm8kKw/cRSYV0/hXWnhXfpXHE5yFYhM3fGqYdPbCJ8mEYp3oN4F83e9u8AH4AvSTOa0Em8HTIE3S1qNxHWaHr2Hho/coLaph/QryKY5CeXZwr9J2OSz25tfSTAsf3SIV8IBSSpBQdoV8JwDyyIRiHbrB1m0k3dzhnsBlPWkOhKOcUxhuvZEKwjs341JC2txsQv4zusdHwUVwq8fjWUaaB54ZoWLXgT3S0tW69GJwGrFr9/DwcPP4+DjHr3+Dl6UBQstJBx+D0bGxsZaRkZFWxLwcLBwHubp8++VbD/HwFUdoWFH3qHxgD3iMtJ4kl8s1KM/YOX3T29t7saGhgSYmJriivtzc3AslJSUv4N4BdoUUWeP1etfV1dX9MjQ0tAoNZE9PT+8pLS1dmJmZeQBllqF3Pcg3Ivl5z7oXvAb2kUEZWUfZC/LuYjlYwAkpKSk3yBytRg/21dfXr4KRK0iLWXO6u7sd/f39NbjfiXwblXakwmxB2oMtLS01brebe2kZjFqK4bmmtrY2A2Wwc9shZQd71yHf5o18ERmUEUPLQhOysrL4kOsE2NzR0eH2+/0r5BF75IOofEV2dvZe3C8mbb6dEPaD5uLi4o9w5ZOIY8jz34soo2hgYKATt7sl76aQz2aCDWRQRgyNmBfD0K/7+Y/dbvdiODphrNfn810O88ooninMS+5NB/KPBh+gR6ebh4bnqRFD20IT0Pq8/zwEOjEfebgGgs/YibS3t/Pme21qairHxV9LXqYWrMGzRWlpafUw9iDuF8ir7pycHA4tf5C8fwSL1F27yKCMGPoOaNIn9PX1HUBvPIzbHU6nsyA/P5+H2iS4hPTJqqqqa3D/FjgGyjmv5Ofw0QWqYRT3zp+At2bjhYWFZ5csWZKD31slb21IPb6S8hInpR1klQGed6qnp6dS9+wp4BocHDwJL1qF+zckauJDsowwZRWBc+AMqITT2gdnxPe94G5dvvdleXkebFAzuT9VcuilN1TS88Cb4Hvwiax9GRHKyQLbwGFwFLwKbgnJEzTUsAPSy1TrOByO//3GUOPI5SWKUsjP6/C7QkIVq6Fj/A/mV1Y0mWW4hfoDP8/jKF4PfmOYTChWQ38mzcPy4r9YIphI2g62hqTxOnko0ksom9fMdWAA/EYzLa4A6JJdxQNR5Oel5ILSDrYZPlC7Por3npP5+W24eHlGhA8/K5X4S2lHntPld4LVoAAsnCYv70ef4OUG+IHpoxRTB9ioAK+RfErHrc1nu0cAb8sCFJs4aCgAHAvzdo+Dg+2YGu/RbEt61qOmxD3gi5GArhxeT8uBg+KgeP2XxI2kna7zEI7kiTm4X0vaTiRUHCs3g3ZwHBxGT7porgpG22SOheM2cUahGgCPzJrDibfEGYUa2gHuoGRSGEO/A1EFHfNKOkPZYb2ttA158kkM7ZL5GBdHOCeltL9QMXU+a8mSJUuWLFmylDD9C6ACw3K9oooaAAAAAElFTkSuQmCC"
+                      />
+                      <h5 class="text-[#fff] text-[2rem] font-[500]">
+                        manyface
+                      </h5>
+                    </div>
+                    <div class="flex flex-col space-y-8 mt-[2rem] mx-[1rem]">
+                      <a href="/create-video.html"
+                        ><div class="w-full nav-links">
+                          <div
+                            class="flex space-x-3 w-full p-2 rounded bg-transparent text-[#fff] text-[16px] font-[600] flex items-center px-[1.25rem] py-[.7rem] border-2 border-solid border-transparent rounded-[2rem]"
+                          >
+                            <img
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAD/SURBVHgBrVSBEYIwDCxO4AiO4AiM4AiMwAbtBuIITuAIuElH6Agx0VRiG0oB/+4PSJN8SHI1BgEAFhlgPSjmakogB9gPVxKIlZ/MSlBM/JOS0xtmI7R4/DwSZx22CuCjRY6idf1cBZZbtzhEkUxbkpAJgD50VyEAXL3jFn3yKgLfoUPFEEXyVrMfzJ/QNM1Ts2sCN356JuFutiJtEdsGMWRXE484q3mRnmh2FsigXJ2YHWgBcZeD2IyuQsBDjpA6W5iHLQnw+wX5EDG9dOzEQdxlYi/sbUlA2KarQhjHTHU6c7FdiX35sksryZSnin4SJT0fagQowNee8/fiGr8A7F/Oe/rPoIwAAAAASUVORK5CYII="
+                            /><span>Create Video</span>
+                          </div>
+                        </div></a
+                      ><a href="/"
+                        ><div class="nav-links w-full mt-[-1.7rem]">
+                          <div
+                            class="flex space-x-3 w-full p-2 rounded bg-transparent rounded-[2rem] border-2 border-solid border-[#3E3E3E] w-[15.5rem] text-[#fff] text-[16px] font-[600] leading-normal flex items-center px-[1.25rem] py-[.7rem]"
+                          >
+                            <img
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMiSURBVHgBrVVNTttAGB3b4/zhlEYCpXQVJBaILfuK3qGkS8QJ2huU3KDtCeiaHiLbLlBXIBZIsAAhhEQhpMRjx56+N4xRmgYnpHnSZGY8b77/+SLEM6C1/oDxC+ME45OYNW5ubmoQvKuHkCTJZ0w1MQM4vV5vGcJ+6qdxgtEQ/4M4jt/aUI3DCbliCjgIy0f9TOBOC9NkGkB8iQu7ekrg7hcaOoknUyvJkKZpe1iZM+CJA7iY+2IGgCxJnXat3YEDrqWYEVZWVmSz2aRMkzSjaGdnh7NTr9dnpuj29tY/ODjwWq2W+6jIWuBdXl76Yka4urry7+/vXSgz6TEetNtt9/j4WIoxoTs6Ovr+G+B6DlhdXX2XQ/fx2KO9vb1Y2FrgDz0JcLeeV01bW1tN8N5wbG9vv8/jgvMKo2qNNwUg1tfXjQkw1s2xULium0op+xzYJmI8HMimI85gqJxKpZJ7q1QqRajOCO1Gw/tI5MMYvb+/z6ej/8oJkjeJIubI8X1/nCKDtbU1vs8Hj6h1YWFBIHm5jWp+fj6MoijkulqtKjEBDg8PH2VmxcDELZ2fn49sQZ1O5wfOGwjvEubXGMtnZ2ffRnFPT0+/Ws4LK9s1iULCJLwqYR0Ui8UqelWAPJSQdK/f7ycIk8KeIesGQaC63S6tLJOPswrOilh7GCwSekpux849jISH4uLiwkVX4Jq1X4AirlFkrkgfwHwoeKNQmXwXGmsXCiS5UOaBy2bKSoxgbITmrBYXFyPknd9SaUOn0RU04t63RE8pJeANhaTIpUJueOmxrCHYcOkJFJpPFMhvuMvvCSLCvcmRZ/Nkeh3C4niex6IQVmDM6gKUFRrZ8KR8CuCSn8KgNAsbKlPBUIY6RIgpI2HesgdKYnJ9fR3jMLSx7UJYF9bdcV+r1ahdoVxpflwul6NCodALw5BvgpwODL2DYexS5MbWWEZksBCNVxLNlYnly51jshHnwO6LGxsb0kaBQzYajZI9C2zVBrZICuKh9fzbafjHZ/8ujKDNzU3PCpbZnhfJ47C5NdyMxznjiaf+YUd800PrpzAsYyT3D0na7VzYD4bEAAAAAElFTkSuQmCC"
+                            /><span>Home</span>
+                          </div>
+                        </div></a
+                      >
+                      <a href="dashboard/influenser-dashboard.html"
+                        ><div class="nav-links w-full mt-[-1.7rem]">
+                          <div
+                            class="flex space-x-3 w-full p-2 rounded bg-transparent text-[#fff] text-[16px] font-[600] flex items-center px-[1.25rem] py-[.7rem] border-2 border-solid border-transparent rounded-[2rem]"
+                          >
+                            <svg
+                              stroke="currentColor"
+                              fill="currentColor"
+                              stroke-width="0"
+                              viewBox="0 0 512 512"
+                              color="white"
+                              height="22"
+                              width="22"
+                              xmlns="http://www.w3.org/2000/svg"
+                              style="color: white"
+                            >
+                              <path
+                                d="M256 176a80 80 0 1080 80 80.24 80.24 0 00-80-80zm172.72 80a165.53 165.53 0 01-1.64 22.34l48.69 38.12a11.59 11.59 0 012.63 14.78l-46.06 79.52a11.64 11.64 0 01-14.14 4.93l-57.25-23a176.56 176.56 0 01-38.82 22.67l-8.56 60.78a11.93 11.93 0 01-11.51 9.86h-92.12a12 12 0 01-11.51-9.53l-8.56-60.78A169.3 169.3 0 01151.05 393L93.8 416a11.64 11.64 0 01-14.14-4.92L33.6 331.57a11.59 11.59 0 012.63-14.78l48.69-38.12A174.58 174.58 0 0183.28 256a165.53 165.53 0 011.64-22.34l-48.69-38.12a11.59 11.59 0 01-2.63-14.78l46.06-79.52a11.64 11.64 0 0114.14-4.93l57.25 23a176.56 176.56 0 0138.82-22.67l8.56-60.78A11.93 11.93 0 01209.94 26h92.12a12 12 0 0111.51 9.53l8.56 60.78A169.3 169.3 0 01361 119l57.2-23a11.64 11.64 0 0114.14 4.92l46.06 79.52a11.59 11.59 0 01-2.63 14.78l-48.69 38.12a174.58 174.58 0 011.64 22.66z"
+                              ></path>
+                            </svg>
+                            <span>Influencer Dashboard</span>
+                          </div>
+                        </div></a
+                      >
+
+                      <a href="/background.html"
+                        ><div class="nav-links w-full mt-[-2rem]">
+                          <div
+                            class="flex space-x-3 w-full p-2 rounded bg-transparent text-[#fff] text-[16px] font-[600] flex items-center px-[1.25rem] py-[.7rem] border-2 border-solid border-transparent rounded-[2rem]"
+                          >
+                            <img
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAATCAYAAACKsM07AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEoSURBVHgBpVQLDYNADC1TgISTMAlImAQcbA6Yg+GAOUACEiaBOQAHXQnt0pS78rvkhUDKe21fewAbDiIWhBdhILSEG5w9RJITHoROExPehJ5REcIeXpvth/CcxCJxJYvjalWRbOtJCLYlFNyqVLYdi+Rw8Jiqpmd+oe8ZQUjHLMtGOH6+5j0X5cDZS5nlnkrYN93eqxdcKqEmNSXsW8WkQ2oYgEcvOFmhFjLEUd84Zu5CjMQEy5Qgj60YWKxU1f/5DEnqZ/GpSFSrp3ERY4V6MRucY9rYRok5qwDLUrXZd+OBXspnwoPZGx4rac0tkoC9EgaHuGAvhS/o1tRea/jn2vFAKmrQu2ZMayr090CWM70HK0LSmgbje9Djyfsrtgf+KJ4UqvcS/wCZI9JtK6u2SQAAAABJRU5ErkJggg=="
+                            /><span>Background</span>
+                          </div>
+                        </div></a
+                      ><a href="/music"
+                        ><div class="nav-links w-full mt-[-2rem]">
+                          <div
+                            class="flex space-x-3 w-full p-2 rounded bg-transparent text-[#fff] text-[16px] font-[600] flex items-center px-[1.25rem] py-[.7rem] border-2 border-solid border-transparent rounded-[2rem]"
+                          >
+                            <img
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEJSURBVHgBrVQ7EoJADA3MVkJNj7XW0tvTa+0BPIWX8AD2WttLrZdwa7fGZAkrMvthHd9MJsC+vE0yCQlMRNu2GTqygi1nnw38RXgEanSrQXAGYRTCc0hiS4iDSj2HOcRD+TKcuYLQXuwle2pHRd9FIEMKOA4CVZIkakzEflcs6M2Qbr2hQANhmGrSAFHCNPT9llZBLKGAOJiR+leGGtge6RKMzXDeP4gA8Wn7iC1ZsEgJXbn0rowg72nJJMquct2A3B262nKk2yOQQCu2B/uuypFY5hAz1VAPt+Be/K8h5qG+O7hnnSF0a2Ql2LYCcUBbQ/fzIFAVV+Q+9KU8cxv49I1Sb5Bwgh/wBoKISYNkmPS6AAAAAElFTkSuQmCC"
+                            /><span>Music</span>
+                          </div>
+                        </div></a
+                      ><a href="/sheduled-post.html"
+                        ><div class="nav-links w-full mt-[-2rem]">
+                          <div
+                            class="flex space-x-3 w-full p-2 rounded bg-transparent text-[#fff] text-[16px] font-[600] flex items-center px-[1.25rem] py-[.7rem] border-2 border-solid border-transparent rounded-[2rem]"
+                          >
+                            <svg
+                              stroke="currentColor"
+                              fill="currentColor"
+                              stroke-width="0"
+                              viewBox="0 0 512 512"
+                              height="1em"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"
+                              ></path>
+                            </svg>
+                            <span>Schedule Posts</span>
+                          </div>
+                        </div></a
+                      >
+                    </div>
+                  </div>
+                  <div class="pl-[1rem]">
+                    <img
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAWCAYAAACsR+4DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALNSURBVHgBvVZbUhpBFD23h6r4l1mBOjsgK3DiBjQrUD9Spf4EVgCuQP1Rq/KBrkBWoOMKZAeAKyB/JiVzcy7TICCDBMacqmaG7unu0/dxbgMFIT5s77PFKAgOBYCENkVcDS7YQ0EohJiT4Acfm0jxgIIgWBHmPlrrXkWuk4v1AxSElSzmXdjgawdp/wQFYmlicaUdinO3fN1UTQ+Sq6gzGiPh7cNuDSvA2SL4Rxgp9yc4haIsmp6QVDLxgaCsgvr28VMDSyD+3i4LiZ05F3xO0/7Nmw1mTTL3maU8qburqJ7zXd0yVSDNVPvVcYvOWZvxGtRE+w8ycMlv12Z/yNahW274TKZJGiHnSnscr9h/Bd13GTXnbnTUrgjcabauMAb7yYTLuTeeUXbidhTYhWU2v72/3IhkaoFpDBcJfeuR2DnWcJacRT0sgEGoiDRoudh39XwbrjkBHoDxun4tr6d7uhdomRt/Y4yE5io4tzEYTNNf/G2RUHNRQm8IMm4Q0Cq2pmpIsj2u2+VeLbygIyX3OC45pVeqTHfqEcVy5+5yvcqeJgpE8jNqwQ43A8zghpoVxyRnJBcWU+YmhVaKrHnvwWosM3ifiXQ+Hn+TOraGOn97zLpT/AeMaixjeTq7J4hZ/NBqVYuvbaY7PhjDGssMr06PzayVY4nwZRH9WQbeWu28Gju7JGnfPgwpdksp9yKwwo85NXYmMbMSrcUJGn9EIljAI3PheZ5Hcq89viI82rt+okvH9MsrdqbULthwilC9WMpAPLWTKrXPNErRmi7w3lowhc/bv5Q3YERYEaqsCLfuGVaG6hMnkkHmUogpMCQy7NdsdJfjo6N/Pep2RCRhPT5xcDXNbiS5pPy0+fCJEOsLrZaJZNZ/TCVP0ctzxbAO8pUkZYtblUfkF7hUlvAeLBHM9EFgC4+IJRdRa9407/rEN/jrld04tha5VP4FqsBdFXG05qYAAAAASUVORK5CYII="
+                      class="mt-3"
+                    />
+                    <p
+                      class="text-[#fff] text-[0.850rem] font-[600] leading-normal mt-[1rem]"
+                    >
+                      Enhance your reach by generating and deploying tailor
+                      videos focused on your brands with ease!
+                    </p>
+                    <span
+                      class="text-[#4169E1] text-[1rem] font-[500] leading-normal"
+                      >Learn More</span
+                    >
+                    <div class="flex items-center gap-[.7rem] mt-[2rem]">
+                      <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAWCAYAAAAvg9c4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAExSURBVHgBzZRtccMwDIZf7wYgDOoxCISNwcYgDFoGCYN0CAphNwQdg46Bx2Bl4EkX+aqlcmr3T/vcKT5/6I0tyQYMYowNWU8W4sQv2Z6swzWQo1diFj1qUYIHsmf1o0EJb2oEX8WJhb0xv0nhKNVkp+2lnUh8mVVuzcOs30h7RJ5vaZ9KRZOYR552tnYZTowqIW/M9ynmqEHqMSWrI2vlZ6PKflejmQr/EPOUl5Mh3smugxhXRotb4XSHj07NGlOGG2P9p3Nuq9aP1HgaezPVacFaFXaO3cwnWBfhUSb5kRhk7IvsHed1yP0flBCnxyIxoILcTnliZx0tIzKqaghqM3rsA6omL5ZLPF2MJYLjLztQBh0KiP+v7x7TO/GCU7yPSPK4gqXsc6ZXuBckxmcv1h970OuXZbBcVQAAAABJRU5ErkJggg=="
+                      />
+                      <h5
+                        class="text-[#fff] text-[18+6px] font-[600] leading-normal"
+                      >
+                        Login
+                      </h5>
+                    </div>
+                    <div class="mt-[1rem]">
+                      <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQoAAAABCAYAAAAme+C+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGjSURBVHgBXVKLldswDCMp2V2w63TOLtAlco6JAqTky7u8JNYHBEDQ/vvPv78OgzlgFvV0M3P9maXtj5tQ8CDa6otwFQkS0HLVNE4bb6CbFw+JxY3FSC5rLYo2Vrqoel4iyM2L5JnIUuUkzvbbHCHC0uM/a2TZ91O621P3VE/hY/VBn6W39NVTmQayuMXJHunFmrdy2pr6ba3Vn4zgEy8uhz9ZYHkhr6ecLM8b0+lqHdb6RYmPHpimjyLC3lt4xhqXRzS2cvzOvGcU5a+AsbikpfPAs/c2+mi6fMpQpizD0b1rhpmdeSU5OptJD0mlwZr3zTzCHk/yl3bb8PFoMmtUGrHyWLnoPmwgq8/bdO/xMceVC5vn+sed3fQ81CbPboVGBpNFk598L7+8j486eYwxUKmzzlk39kurd0S16DnGmA+usx8pT+lvTR/aF04+Z/Pn8iyFnFxfsjaJu4pjjMYMTOgM8+D+wmGHbV3OP+26bM5Z2OM47EVMcyGZp7/T8lQ2rJnzZN0X1yfygJhhXy8zAiLPzIP716vu7Vf3Gtkv1HEC/wG0C2qmDeHqZwAAAABJRU5ErkJggg=="
+                      />
+                    </div>
+                    <div class="flex items-center gap-[2rem] mt-[1.5rem]">
+                      <h5
+                        class="text-[#fff] text-[14px] font-[500] leading-normal"
+                      >
+                        Follow &amp; Join today
+                      </h5>
+                      <div class="flex gap-[1rem] items-center">
+                        <img
+                          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMySURBVHgBzZg/SONQHMe/dVBQhy7q6DsVFwcrgqCIjTorOugmjTiJg4eT20VXwbtRXCqCk8PdObqkBQcR5dx0ax3bpd1KofC792JSmkuavCZpe1/4pn3/kk9/7+Xl18QQTHFuhTvJzbgT5qelMvcrd547y50xv7ddCvdP7hI3tWidW0WblDAvQBE4FzXo94jA3CLKEEIM0UXNK5oJBBAzB1OHnEILYh2Gs7wBSf3pApxwCRJr8luX4BrXZLwZHOsynGWtGaDe6snGxsaIMebaNjAwQAsLC9TX1xdkqh1RVGRPoCgKXV9fU6lUIiFd1w3IqakpWlpaovn5eZqYmKDDw0OyJPqkUinq7+8PHMW0zMCnpycKo0Kh0DTiXlGMy8CpqkpR6P7+XjaKqgW44dd5aGiIcrkcRaWVlRUZwLQF+MOv897eHkUpsSYlAHMWoO7XOcroWZqbm5OBjPfAZ/dOJpPgCxtRa2trS6Yb8wVcW1tzrb+4uMDMzAx2d3dRLpcd7efn55icnMTBwQGq1aqjfX19HTKA4uAZ5sfHR8f0vL29ea7R29tbW/vp6anrNA8PD/veyT1+P4FvwI66l5cXWzmbzdrKDw8PtjLfP+Gm2dlZ+KgsAPNePQYHBx11/BFnKy8uLtrKq6urUiAjIyPwAxQHz/SqmTRNo+npaVpeXqZisehoPz4+pvHxcdrc3KRKpeJ6DrH5w3uKjWz7KghgFPIBFI87iCl+xf8pg0sAXnn1yufzjrqbmxtcXl7i4+PDa6ix/dzd3RlbTbN2D/0Wh5hZ0PGZcjk0OjqKk5MT8HTJVi/u3O3tbfCtAolEAjzFQm9vL2q1mnFhcec+Pz8bcGdnZ4jFYvWx7+/v2N/fRyaTgYe+oOEGVuGzH4pHE49Gff2k02mZRxXt7OzUx4j9k4PJjPv1L61IuXIyFxT53NHRkWxeZ1hAiURXtj+azKbawgna6TQ8pHcZzvevJ0OwN1dR+SskpHQJTkMLUjsMd4UAEv9VOjHdGkKIoX0vksSPl1pzMtIQLZyOkC8v3cTwuVbCRFSAKeiAVEnYkgklpjKOAIohvMSFrde4zPzMNziU/gKeiv4ExuWXdAAAAABJRU5ErkJggg=="
+                          class="cursor-pointer"
+                        /><img
+                          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAlCAYAAADFniADAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAU8SURBVHgBtVdJSGxHFC39Du08i+N3DoqKKBLiHNyIgqJGd4LiIgRBY8TgGBFjRNCVoBizEAlNQOLC4W80wSGLCIoElODYzqjEFkWNc1dOFXnv9/89vdfqhbvo23Xrnap77lAWxExJT08POTg4SLq+vg69v7/3f3x8VFhZWT1YWlqqHRwcVNbW1n9vbm7+aWFhoSGvKQEBARlubm5KOzu7fXyMwmRUse4fhULxu6ura1lvb68jeUkJCQlJx+ZzpkAY0zdv3ux7eXl9PT09bUWeI/n5+a7e3t4/IiRmg/lYnZycVnHAYGKOMEfoxkuB0Vbse5qcnFxE5IiPj08wiLr9GoDI+3BqQkNDv5EEKCoqKgjhelVAgjJahIWFVRoFVF9f72ZjY6MSnFiGGVJzQOjzZTcWGxubbRAU0r1X2yEvL4/e3t7q1cbGRlmAmpqauF9LS4vOf6DKMcqGqw6gzMzMZH030NXVRZnMzMzQ9vZ2rlNTU/Th4YGCrJIAVVZW8j0GBgYM3rK9vX2rDiik/ry+xQgnXVhYoKenpzQoKIjbXFxc6Pr6Ot3b26PwMwqouLiYPj090YmJCYqKb3Ad/rtAGN1EQGlpaSnGNg4ODuagGDgGktliYmIoWgz/mCG/1NRUenNzw/0cHR1N3igi2CKCQjv4xZRDRkYGD1lHR4doKykp4WGpq6vTWY8spicnJzzs7GZN7c8UwI8XFxetOSg00HUpTozcGo2GZmVlibbu7m5O4ISEBNGG+kP39/fp8vIyO70kQIJGRkZ+TnJycj6R6sBIOjs7S4+Pj6m/vz+32draUpyOqlQq6u7uznm3vb3N+SZwUI6iP35P4Fggxyk8PJyen5/Tubk5KvREdkt3d3d0fHycYlzhoCMiImQD+p9XEyzrvpPrWFpayrnU1tYm2mpra7nt6urqg1DKVZQGlU7BlKqMS4xfubm5ok2pVPJseyaoK4JRYtAcZxY6llkXFxdiqLAhXVlZoUdHR9TPz88sUJggNATp+pO5p2JkZ+Fi5BcqNQPIgDLA5sxhKE8PjFOd5oJinBJEuxeWlZVxW1VVlew9nZ2dj4inp+eX5gBqbm7mH2bFlPVHVlhTUlLE//v7++nl5SUvojJv6g+SmJj4qVxANTU1HFBfX59wOp1eiILMbaurq2wElrw3LmmAtLa2KtDPzqQ6VVdX86zD64TNQqIdjwveH+fn58X+iAbL++PIyIjkGQx18wvCBFnzTooD3nq8pQwODur9SEFBAb9BFk7BVlFRwW0NDQ0m90fm/dvZ2enCQSFjTPIqOjqanp2d0cnJSTaUGVwnzF8MoGAbGhrinEtKSjL6DYRcSQTBaRxBsFNDizFHU7yGeX8LDAw0ujELHeuFLJTgB7exKWFjY8Pk/AXQ8URb8Pr91kCM6c7ODt3d3eVzlakbZSrMX8PDw7xuMS0sLOShHx0d1euDnvcr+Vh6enpskSUr2gvZrWxtbdHDw0PeiKUAErSoqIiHTJ+Ul5d/sBZT56Ovr2+kgMVCGxiyJRQpvIjN+FiK2Yb1RrK2tkbAJyJX4uLiWBLp2DFRkKWlJfG3h4dHs1qt/sHgRmimBUCuITJu5TmKHjlIpAg4UIW+9erAAGiS0YZIFQD76jWBIQt/lgVIEDwWslEkd18SDGrcLUbeOvIcyc7ODkBmNKGOqZ8DhnUA1K138fHxSeSlBE94P9SfBpx0Rw4YJM0VDqWUA8aCyBSUGUvwLR3DXSb0M5jewvYWr2AFOPiI32q8cLbRtP/CzUyhPf02NjZ2Kecb/wHdaMbvc3TcaAAAAABJRU5ErkJggg=="
+                          class="cursor-pointer"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 24 24"
+                        color="#fff"
+                        font-size="20"
+                        class="cursor-pointer &quot;mt-[.5rem]&quot; : &quot;mt-[1.2rem]&quot; }"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(255, 255, 255)"
+                      >
+                        <path fill="none" d="M0 0h24v24H0z"></path>
+                        <path
+                          d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- mobile sidebar -->
+
+            <div class="hidden lg:block">
+              <div
+                class="relative hidden lg:block bg-[#2C2D2F] px-0"
+                style="font-size: 1rem; width: 18rem"
+                id="sidebar"
+              >
+                <div
+                  class="h-screen overflow-hidden flex flex-col pt-10 pb-5 &quot;bg-[#2C2D2F]&quot;"
+                >
+                  <div
+                    class="cursor-pointer absolute -right-3 top-[3.6rem] rounded-full w-[2.125rem] h-[2.125rem] flex justify-center items-center"
+                  >
+                    <img src="../assets/icons/rightArrow.svg" class="w-2" />
+                  </div>
+                  <div
+                    class="cursor-pointer absolute -right-3 top-[3.6rem] rounded-full w-[2.125rem] h-[2.125rem] bg-[#3E3E3E] flex justify-center items-center"
+                    id="toggleButton"
+                  >
+                    <img src="../assets/icons/rightArrow.svg" class="w-2" />
+                  </div>
+                  <div class="flex items-center space-x-4 logo-div">
+                    <img />
+                  </div>
+                  <div class="bg-[#2C2D2F] flex-1">
+                    <div class="flex items-center pl-[1rem] gap-1">
+                      <img src="../assets/images/logo.png" />
+                      <h5 class="text-[#fff] text-[2rem] font-[500]">
+                        manyface
+                      </h5>
+                    </div>
+                    <div class="flex flex-col space-y-8 mt-[2rem] mx-[1rem]">
+                      <a href="/create-video.html"
+                        ><div class="w-full nav-links">
+                          <div
+                            class="flex space-x-3 w-full p-2 w-[15.5rem] text-[#fff] text-[16px] font-[600] leading-normal flex items-center px-[1.25rem] py-[.7rem]"
+                          >
+                            <img
+                              src="../assets/images/cameraicon.png"
+                              height="40"
+                            />
+                            <span class="block" onclick id="createVideoText"
+                              >Create Video</span
+                            >
+                          </div>
+                        </div></a
+                      ><a href="/index.html"
+                        ><div class="nav-links w-full mt-[-1.7rem]" style>
+                          <div
+                            class="flex space-x-3 w-full p-2 rounded bg-transparent rounded-[2rem] border-2 border-solid border-[#3E3E3E] w-[15.5rem] text-[#fff] text-[16px] font-[600] leading-normal flex items-center px-[1.25rem] py-[.7rem]"
+                          >
+                            <img src="../assets/images/homeicon.png" /><span
+                              class="block"
+                              id="homeText"
+                              >Home</span
+                            >
+                          </div>
+                        </div></a
+                      ><a href="/dashboard/influenser-dashboard.html"
+                        ><div class="nav-links w-full mt-[-1.7rem]" style>
+                          <div
+                            class="flex space-x-3 w-full p-2 rounded bg-transparent text-[#fff] text-[16px] font-[600] flex items-center px-[1.25rem] py-[.7rem] border-2 border-solid border-transparent rounded-[2rem]"
+                          >
+                            <svg
+                              stroke="currentColor"
+                              fill="currentColor"
+                              stroke-width="0"
+                              viewBox="0 0 512 512"
+                              color="white"
+                              height="22"
+                              width="22"
+                              xmlns="http://www.w3.org/2000/svg"
+                              style="color: white"
+                            >
+                              <path
+                                d="M256 176a80 80 0 1080 80 80.24 80.24 0 00-80-80zm172.72 80a165.53 165.53 0 01-1.64 22.34l48.69 38.12a11.59 11.59 0 012.63 14.78l-46.06 79.52a11.64 11.64 0 01-14.14 4.93l-57.25-23a176.56 176.56 0 01-38.82 22.67l-8.56 60.78a11.93 11.93 0 01-11.51 9.86h-92.12a12 12 0 01-11.51-9.53l-8.56-60.78A169.3 169.3 0 01151.05 393L93.8 416a11.64 11.64 0 01-14.14-4.92L33.6 331.57a11.59 11.59 0 012.63-14.78l48.69-38.12A174.58 174.58 0 0183.28 256a165.53 165.53 0 011.64-22.34l-48.69-38.12a11.59 11.59 0 01-2.63-14.78l46.06-79.52a11.64 11.64 0 0114.14-4.93l57.25 23a176.56 176.56 0 0138.82-22.67l8.56-60.78A11.93 11.93 0 01209.94 26h92.12a12 12 0 0111.51 9.53l8.56 60.78A169.3 169.3 0 01361 119l57.2-23a11.64 11.64 0 0114.14 4.92l46.06 79.52a11.59 11.59 0 01-2.63 14.78l-48.69 38.12a174.58 174.58 0 011.64 22.66z"
+                              ></path></svg
+                            ><span class="block" id="projectText"
+                              >Influencer Dashboard</span
+                            >
+                          </div>
+                        </div></a
+                      ><a href="/background"
+                        ><div class="nav-links w-full mt-[-2rem]" style>
+                          <div
+                            class="flex space-x-3 w-full p-2 rounded bg-transparent text-[#fff] text-[16px] font-[600] flex items-center px-[1.25rem] py-[.7rem] border-2 border-solid border-transparent rounded-[2rem]"
+                          >
+                            <img
+                              src="../assets/images/backgroundicon.png"
+                            /><span class="block" id="backgroundText"
+                              >Background</span
+                            >
+                          </div>
+                        </div></a
+                      ><a href="/music"
+                        ><div class="nav-links w-full mt-[-2rem]" style>
+                          <div
+                            class="flex space-x-3 w-full p-2 rounded bg-transparent text-[#fff] text-[16px] font-[600] flex items-center px-[1.25rem] py-[.7rem] border-2 border-solid border-transparent rounded-[2rem]"
+                          >
+                            <img src="../assets/images/musicicon.png" /><span
+                              class="block"
+                              id="musicText"
+                              >Music</span
+                            >
+                          </div>
+                        </div></a
+                      ><a href="/sheduled-post.html"
+                        ><div class="nav-links w-full mt-[-2rem]">
+                          <div
+                            class="flex space-x-3 w-full p-2 rounded bg-transparent text-[#fff] text-[16px] font-[600] flex items-center px-[1.25rem] py-[.7rem] border-2 border-solid border-transparent rounded-[2rem]"
+                          >
+                            <img
+                              src="../assets/images/sheduleIcon.png"
+                              height="40"
+                            />
+                            <span class="block" id="sheduledPostText"
+                              >Schedule Posts</span
+                            >
+                          </div>
+                        </div></a
+                      >
+                    </div>
+                  </div>
+                  <div class="pl-[1rem]" id="rewardDiv">
+                    <img src="../assets/images/rewardicon.png" class="mt-3" />
+                    <p
+                      class="text-[#fff] text-[0.850rem] font-[600] leading-normal mt-[1rem]"
+                    >
+                      Enhance your reach by generating and deploying tailor
+                      videos focused on your brands with ease!
+                    </p>
+                    <span
+                      class="text-[#4169E1] text-[1rem] font-[500] leading-normal"
+                      >Learn More</span
+                    >
+                    <div class="flex items-center gap-[.7rem] mt-[0.5rem]">
+                      <img src="../assets/images/loginicon.png" />
+                      <h5
+                        class="text-[#fff] text-[18+6px] font-[600] leading-normal"
+                      >
+                        Login
+                      </h5>
+                    </div>
+                    <div class="mt-[1rem]">
+                      <img src="../assets/images/lineimg.png" />
+                    </div>
+                    <div class="flex items-center gap-[2rem] mt-[1rem]">
+                      <h5
+                        class="text-[#fff] text-[14px] font-[500] leading-normal"
+                      >
+                        Follow &amp; Join today
+                      </h5>
+                      <div class="flex gap-[1rem] items-center">
+                        <img
+                          src="../assets/images/discordicon.png"
+                          class="cursor-pointer"
+                        /><img
+                          src="../assets/images/twittericon.png"
+                          class="cursor-pointer"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    id="sidebarInfoDiv"
+                    style="display: none"
+                    class="flex gap-[1rem] flex-col items-center"
+                  >
+                    <div class="flex items-center gap-[.7rem] mt-[0.5rem]">
+                      <img src="../assets/images/loginicon.png" />
+                    </div>
+                    <img
+                      src="../assets/images/discordicon.png"
+                      class="cursor-pointer"
+                    /><img
+                      src="../assets/images/twittericon.png"
+                      class="cursor-pointer"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <main class="grow bg-[#fff] w-full">
+          <div>
+            <div
+              class="px-[2rem] h-screen overflow-auto mb-32 max-lg:mt-[3rem] max-lg:overflow-x-hidden"
+            >
+              <div class="flex justify-end gap-[1rem] mt-[1rem]">
+                <div
+                  class="flex items-center gap-[.3rem] border border-solid border-[#3E3E3E] rounded-[2rem] w-[202px] h-[45px] justify-center"
+                >
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    font-size="20"
+                    class="text-[#000] mt-[-.5rem]"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M443.5 420.2L336.7 312.4c20.9-26.2 33.5-59.4 33.5-95.5 0-84.5-68.5-153-153.1-153S64 132.5 64 217s68.5 153 153.1 153c36.6 0 70.1-12.8 96.5-34.2l106.1 107.1c3.2 3.4 7.6 5.1 11.9 5.1 4.1 0 8.2-1.5 11.3-4.5 6.6-6.3 6.8-16.7.6-23.3zm-226.4-83.1c-32.1 0-62.3-12.5-85-35.2-22.7-22.7-35.2-52.9-35.2-84.9 0-32.1 12.5-62.3 35.2-84.9 22.7-22.7 52.9-35.2 85-35.2s62.3 12.5 85 35.2c22.7 22.7 35.2 52.9 35.2 84.9 0 32.1-12.5 62.3-35.2 84.9-22.7 22.7-52.9 35.2-85 35.2z"
+                    ></path></svg
+                  ><input
+                    type="search"
+                    placeholder="Search"
+                    class="bg-transparent w-[7rem] text-[#000]"
+                  />
+                </div>
+                <button
+                  class="trounded-[32px] text-[#fff] text-[18px] font-[600] leading-normal w-[202px] h-[45px] bg-[#4169e1] rounded-[32px]"
+                >
+                  Create Video
+                </button>
+              </div>
+              <div class="flex items-center gap-[.3rem] max-md:mt-[1rem]">
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 24 24"
+                  font-size="20"
+                  class="text-[#000]"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.97 2.59a1.5 1.5 0 0 0-1.94 0l-7.5 6.363A1.5 1.5 0 0 0 3 10.097V19.5A1.5 1.5 0 0 0 4.5 21h4.75a.75.75 0 0 0 .75-.75V14h4v6.25c0 .414.336.75.75.75h4.75a1.5 1.5 0 0 0 1.5-1.5v-9.403a1.5 1.5 0 0 0-.53-1.144l-7.5-6.363Z"
+                  ></path>
+                </svg>
+                <h5 class="text-[#000] text-[16px] font-[600] leading-normal">
+                  Home
+                </h5>
+              </div>
+              <div class="mt-[.3rem]">
+                <img src="../assets/images/lineimg2.png" />
+              </div>
+              <div class="lg:flex justify-between mb-[8rem] md:mb-[0rem]">
+                <div class="mt-[1.5rem]">
+                  <h5 class="text-[#000] text-[16px] font-[600] leading-normal">
+                    Learn How:
+                  </h5>
+                  <div
+                    class="flex flex-wrap justify-start gap-4 max-md:justify-center"
+                  >
+                    <div
+                      class="border border-solid border-[#787878] rounded-[1.375rem] w-[307px] h-[13rem] bg-transparent mt-[.5rem] max-md:w-full"
+                    >
+                      <div class="mt-[2rem] relative">
+                        <div
+                          style="
+                            width: 100%;
+                            height: 8.375rem;
+                            position: relative;
+                          "
+                        >
+                          <div
+                            style="width: 100%; height: 100%"
+                            class="relative"
+                          >
+                            <!-- Your video element goes here -->
+                            <video
+                              src="../assets/video/video1.mp4"
+                              class="object-cover w-full h-full"
+                              id="videoPlayer1"
+                            ></video>
+
+                            <!-- Play/Pause icon in the center -->
+                            <div
+                              class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                              id="playPauseIcon1"
+                              style="cursor: pointer"
+                            >
+                              <!-- Replace the icon class with your preferred play icon -->
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                class="w-12 h-12"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M5 3l14 9-14 9V3z"
+                                />
+                              </svg>
+                            </div>
+
+                            <!-- Dropdown (dot) icon at top right -->
+                            <div
+                              class="absolute top-0 right-0 m-2 text-white cursor-pointer"
+                              id="dropdownIcon1"
+                            >
+                              <!-- Replace the dot icon with your preferred dropdown icon -->
+                              <img
+                                src="../assets/images/dotsiconbg2.png"
+                                class=""
+                              />
+                            </div>
+
+                            <!-- Video duration at bottom right -->
+                            <div
+                              class="absolute bottom-0 right-0 m-4 text-white"
+                              id="durationDisplay1"
+                            >
+                              <!-- This span will be used to display the video duration -->
+                              <span>0:00 / 0:00</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="flex justify-between items-center px-[1rem] mt-[.5rem]"
+                      >
+                        <h5
+                          class="text-[#000] text-[0.9375rem] font-[400] leading-normal"
+                        >
+                          Getting Started
+                        </h5>
+                        <p
+                          class="text-[#797979] text-[0.6875rem] font-[300] leading-normal"
+                        >
+                          (todays date)
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Repeat the structure for the second and third video cards with unique IDs -->
+                    <!-- Video Card 2 -->
+                    <div
+                      class="border border-solid border-[#787878] rounded-[1.375rem] w-[307px] h-[13rem] bg-transparent mt-[.5rem] max-md:w-full"
+                    >
+                      <div class="mt-[2rem] relative">
+                        <div
+                          style="
+                            width: 100%;
+                            height: 8.375rem;
+                            position: relative;
+                          "
+                        >
+                          <div
+                            style="width: 100%; height: 100%"
+                            class="relative"
+                          >
+                            <!-- Your video element goes here -->
+                            <video
+                              src="../assets/video/video2.mp4"
+                              class="object-cover w-full h-full"
+                              id="videoPlayer2"
+                            ></video>
+
+                            <!-- Play/Pause icon in the center -->
+                            <div
+                              class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                              id="playPauseIcon2"
+                              style="cursor: pointer"
+                            >
+                              <!-- Replace the icon class with your preferred play icon -->
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                class="w-12 h-12"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M5 3l14 9-14 9V3z"
+                                />
+                              </svg>
+                            </div>
+
+                            <!-- Dropdown (dot) icon at top right -->
+                            <div
+                              class="absolute top-0 right-0 m-2 text-white cursor-pointer"
+                              id="dropdownIcon2"
+                            >
+                              <!-- Replace the dot icon with your preferred dropdown icon -->
+                              <img
+                                src="../assets/images/dotsiconbg2.png"
+                                class=""
+                              />
+                            </div>
+
+                            <!-- Video duration at bottom right -->
+                            <div
+                              class="absolute bottom-0 right-0 m-4 text-white"
+                              id="durationDisplay2"
+                            >
+                              <!-- This span will be used to display the video duration -->
+                              <span>0:00 / 0:00</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="flex justify-between items-center px-[1rem] mt-[.5rem]"
+                      >
+                        <h5
+                          class="text-[#000] text-[0.9375rem] font-[400] leading-normal"
+                        >
+                          Getting Started 2
+                        </h5>
+                        <p
+                          class="text-[#797979] text-[0.6875rem] font-[300] leading-normal"
+                        >
+                          (todays date 2)
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Video Card 3 -->
+                    <div
+                      class="border border-solid border-[#787878] rounded-[1.375rem] w-[307px] h-[13rem] bg-transparent mt-[.5rem] max-md:w-full"
+                    >
+                      <div class="mt-[2rem] relative">
+                        <div
+                          style="
+                            width: 100%;
+                            height: 8.375rem;
+                            position: relative;
+                          "
+                        >
+                          <div
+                            style="width: 100%; height: 100%"
+                            class="relative"
+                          >
+                            <!-- Your video element goes here -->
+                            <video
+                              src="../assets/video/video3.mp4"
+                              class="object-cover w-full h-full"
+                              id="videoPlayer3"
+                            ></video>
+
+                            <!-- Play/Pause icon in the center -->
+                            <div
+                              class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                              id="playPauseIcon3"
+                              style="cursor: pointer"
+                            >
+                              <!-- Replace the icon class with your preferred play icon -->
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                class="w-12 h-12"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M5 3l14 9-14 9V3z"
+                                />
+                              </svg>
+                            </div>
+
+                            <!-- Dropdown (dot) icon at top right -->
+                            <div
+                              class="absolute top-0 right-0 m-2 text-white cursor-pointer"
+                              id="dropdownIcon3"
+                            >
+                              <!-- Replace the dot icon with your preferred dropdown icon -->
+                              <img
+                                src="../assets/images/dotsiconbg2.png"
+                                class=""
+                              />
+                            </div>
+
+                            <!-- Video duration at bottom right -->
+                            <div
+                              class="absolute bottom-0 right-0 m-4 text-white"
+                              id="durationDisplay3"
+                            >
+                              <!-- This span will be used to display the video duration -->
+                              <span>0:00 / 0:00</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="flex justify-between items-center px-[1rem] mt-[.5rem]"
+                      >
+                        <h5
+                          class="text-[#000] text-[0.9375rem] font-[400] leading-normal"
+                        >
+                          Getting Started 3
+                        </h5>
+                        <p
+                          class="text-[#797979] text-[0.6875rem] font-[300] leading-normal"
+                        >
+                          (todays date 3)
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-[2rem]">
+                    <div class="flex items-center gap-[.5rem]">
+                      <img
+                        src="../assets/images/lightthemeimg/lcameraicon.png"
+                      />
+                      <h5
+                        class="text-[#000] text-[16px] font-[600] leading-normal"
+                      >
+                        Recent Projects:
+                      </h5>
+                    </div>
+                    <div class="mt-[.3rem]">
+                      <img src="../assets/images/lineimg2.png" />
+                    </div>
+                    <div
+                      class="flex flex-wrap justify-start gap-4 max-md:justify-center"
+                    >
+                      <div
+                        class="border border-solid border-[#787878] rounded-[1.375rem] w-[307px] h-[13rem] bg-transparent mt-[.5rem] max-md:w-full"
+                      >
+                        <div class="mt-[2rem] relative">
+                          <div
+                            style="
+                              width: 100%;
+                              height: 8.375rem;
+                              position: relative;
+                            "
+                          >
+                            <div
+                              style="width: 100%; height: 100%"
+                              class="relative"
+                            >
+                              <!-- Your video element goes here -->
+                              <video
+                                src="../assets/video/video1.mp4"
+                                class="object-cover w-full h-full"
+                                id="videoPlayer4"
+                              ></video>
+
+                              <!-- Play/Pause icon in the center -->
+                              <div
+                                class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                id="playPauseIcon4"
+                                style="cursor: pointer"
+                              >
+                                <!-- Replace the icon class with your preferred play icon -->
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  class="w-12 h-12"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 3l14 9-14 9V3z"
+                                  />
+                                </svg>
+                              </div>
+
+                              <!-- Dropdown (dot) icon at top right -->
+                              <div
+                                class="absolute top-0 right-0 m-2 text-white cursor-pointer"
+                                id="dropdownIcon4"
+                              >
+                                <!-- Replace the dot icon with your preferred dropdown icon -->
+                                <img
+                                  src="../assets/images/dotsiconbg2.png"
+                                  class=""
+                                />
+                              </div>
+
+                              <!-- Video duration at bottom right -->
+                              <div
+                                class="absolute bottom-0 right-0 m-4 text-white"
+                                id="durationDisplay4"
+                              >
+                                <!-- This span will be used to display the video duration -->
+                                <span>0:00 / 0:00</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div
+                          class="flex justify-between items-center px-[1rem] mt-[.5rem]"
+                        >
+                          <h5
+                            class="text-[#000] text-[0.9375rem] font-[400] leading-normal"
+                          >
+                            Getting Started
+                          </h5>
+                          <p
+                            class="text-[#797979] text-[0.6875rem] font-[300] leading-normal"
+                          >
+                            (todays date)
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="border border-solid border-[#787878] lg:w-[26.125rem] rounded-[1.375rem] py-[1rem] px-[2rem] h-full sm:h-auto mt-[2rem] max-w-sm:mt-[2rem] max-w-sm:mb-[5rem]"
+                >
+                  <div class="flex items-center gap-[.5rem]">
+                    <img src="../assets/images/lightthemeimg/lcameraicon.png" />
+                    <h5
+                      class="text-[#000] text-[16px] font-[600] leading-normal"
+                    >
+                      Recent Projects:
+                    </h5>
+                  </div>
+                  <div class="mt-[.3rem]">
+                    <img src="../assets/images/lineimg2.png" />
+                  </div>
+                  <p class="mt-4">Test Project</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      // Function to initialize video controls
+      function initVideoControls(
+        videoId,
+        playPauseId,
+        dropdownId,
+        durationDisplayId,
+        videoSrc
+      ) {
+        const video = document.getElementById(videoId);
+        const playPauseIcon = document.getElementById(playPauseId);
+        const durationDisplay = document.getElementById(durationDisplayId);
+        const dropdownIcon = document.getElementById(dropdownId);
+
+        // Add your video source URL
+        video.src = videoSrc;
+
+        // Ensure the video is loaded before attempting to interact with it
+        video.addEventListener("loadedmetadata", () => {
+          // Initialize play/pause icon
+          updatePlayPauseIcon();
+
+          // Update the play/pause icon and toggle play/pause on click
+          playPauseIcon.addEventListener("click", () => {
+            if (video.paused) {
+              video.play();
+            } else {
+              video.pause();
+            }
+            updatePlayPauseIcon();
+          });
+
+          // Toggle play/pause icon based on video state
+          function updatePlayPauseIcon() {
+            playPauseIcon.innerHTML = video.paused
+              ? '<img src="../assets/images/pauseicon.svg"/>'
+              : '<img src="../assets/images/pause.png" width="30"/>';
+          }
+
+          // Update the duration display dynamically
+          const totalMinutes = Math.floor(video.duration / 60);
+          const totalSeconds = Math.floor(video.duration % 60);
+          const formattedTotalDuration = `${totalMinutes}:${
+            totalSeconds < 10 ? "0" : ""
+          }${totalSeconds}`;
+          durationDisplay.textContent = `0:00 / ${formattedTotalDuration}`;
+
+          // Update the progress display dynamically
+          video.addEventListener("timeupdate", () => {
+            const currentTime = video.currentTime;
+            const minutes = Math.floor(currentTime / 60);
+            const seconds = Math.floor(currentTime % 60);
+            const formattedTime = `${minutes}:${
+              seconds < 10 ? "0" : ""
+            }${seconds}`;
+
+            durationDisplay.textContent = `${formattedTime} / ${formattedTotalDuration}`;
+          });
+
+          // Add functionality for the dropdown icon (replace with your desired behavior)
+          dropdownIcon.addEventListener("click", () => {
+            // Add your dropdown functionality here
+            console.log(`Dropdown clicked for video: ${videoId}`);
+          });
+        });
+      }
+
+      // Initialize video controls for each video card
+      initVideoControls(
+        "videoPlayer1",
+        "playPauseIcon1",
+        "dropdownIcon1",
+        "durationDisplay1",
+        "../assets/video/video1.mp4"
+      );
+      initVideoControls(
+        "videoPlayer2",
+        "playPauseIcon2",
+        "dropdownIcon2",
+        "durationDisplay2",
+        "../assets/video/video1.mp4"
+      );
+      initVideoControls(
+        "videoPlayer3",
+        "playPauseIcon3",
+        "dropdownIcon3",
+        "durationDisplay3",
+        "../assets/video/video1.mp4"
+      );
+      initVideoControls(
+        "videoPlayer4",
+        "playPauseIcon4",
+        "dropdownIcon4",
+        "durationDisplay4",
+        "../assets/video/video1.mp4"
+      );
+    </script>
+  </body>
+</html>
