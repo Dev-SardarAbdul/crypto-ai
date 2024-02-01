@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #03050f !important;
+}
+
+.main-container {
+  @apply max-w-[1536px] mx-auto max-[1536px]:px-4;
+}
+
+.main-card {
+  -webkit-mask: linear-gradient(135deg, #000c 40%, #000, #000c 60%) 100% 100%/250%
+    250%;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.main-card:hover {
+  -webkit-mask-position: 0 0;
+}
